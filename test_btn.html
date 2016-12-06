@@ -1,0 +1,140 @@
+
+                <div class="span4">
+                    
+                
+                    <div>
+                        <a id="return-button" class="btn btn-block" href="index.php" id="add-item">
+                            <i class="icon-circle-arrow-right"></i>
+                            חזור לבחירת מם אחר
+                        </a>
+                    </div>
+                    
+                    <div class="well">
+                        
+                        <div id="text-controllers">
+                            <div id="controller-template" class="controller">
+                                <textarea class="textarea" placeholder="הקלד טקסט"></textarea>
+                                <div class="btn-toolbar">
+                                    <div class="btn-group">
+                                        <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
+                                        <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
+                                        <a class="btn align-left" href="#"><i class="icon-align-left"></i></a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn dencrease-font-size" href="#"><i class="icon-minus"></i></a>
+                                        <a class="btn increase-font-size" href="#"><i class="icon-plus"></i></a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn line-fill-color-input" href="#"><i class="icon-tint"></i></a>
+                                        <a class="btn remove-effects" href="#"><i class="icon-glass"></i></a>
+                                        <a class="btn change-font" href="#"><i class="icon-font"></i></a>
+                                    </div>
+                                    <!--
+                                    <div class="btn-group">
+                                        <a class="btn line-fill-color-input" href="#"><i class="icon-glass"></i></a>
+                                        <a class="btn line-stroke-color-input" href="#"><i class="icon-glass"></i></a>
+                                    </div>
+                                    -->
+                                    
+                                    <a class="delete btn"><i class="icon-trash"></i></a>
+                                </div>
+                                <ul class="fonts-list"></ul>
+                            </div>
+                        </div>
+                        
+                        <a class="btn btn-block" href="#" id="add-text"><i class="icon-plus"></i>
+                            הוסף שורת טקסט
+                        </a>
+                        
+                    </div>
+                    <div class="well">
+                        
+                        <div id="item-controllers">
+                            <div id="item-controller-template" class="item-controller">
+                                <div class="item-image">
+                                    <button type="button" class="btn btn-mini remove-white" data-toggle="button"><i class="icon-eye-open"></i></button>
+                                    <i class="delete icon-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="clear:both"></div>
+                        
+                        <a class="btn btn-block" href="#" id="add-item"><i class="icon-plus"></i>
+                            הוסף חפץ
+                        </a>
+                        
+                        <!-- Modal -->
+                        <div id="add-item-dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">
+                                הוסף חפץ
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                
+                                
+                                <div class="row-fluid" id="add-item-other-controls">
+                                    
+                                    <div class="span6" id="add-item-from-computer">
+                                        <div id="add-item-from-computer-controls">
+                                            <label>
+                                טעינת תמונה מהמחשב
+                                            </label>
+                                            <a id="upload-file-button" class="btn btn-block">
+                                                <i class="icon-folder-open"></i>
+                            טען
+                                            </a>
+                                            <form method="post" id="upload-file-hidden-form" enctype="multipart/form-data">
+                                                <input type="file" name="image" id="upload-file">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="span6" id="add-item-from-web">
+                                        <div id="add-item-from-web-controls" class="input-append">
+                                            <label>
+                                טעינת תמונה מהאינטרנט (כתובת)
+                                            </label>
+                                            <input type="text" id="add-item-from-web-input" placeholder="http://www">
+                                            <button id="add-item-from-web-button" type="button" class="btn">
+                                טעינה
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <h4>
+בחירה מגלרייה
+                                        </h4>
+                                        <div id="add-item-from-gallery">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    בטל
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div>
+                        <a id="save-button" class="btn btn-block btn-primary" href="#" id="add-item"><i class="icon-download icon-white"></i>
+                            שמור למחשב
+                        </a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
