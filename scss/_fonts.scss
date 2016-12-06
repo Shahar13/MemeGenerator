@@ -1,0 +1,20 @@
+
+/*----------  Playfair Font  ----------*/
+
+@font-face {
+  font-family: 'Playfair';
+  src: url('../assets/fonts/playfair/PlayfairDisplay-Regular.ttf'); 
+}
+
+
+/*----------  Ubunto Font  ----------*/
+
+@font-face {
+  font-family: 'Ubunto';
+  src: url('../assets/fonts/ubunto/Ubuntu-Light.ttf');
+  font-weight: 400;
+}
+
+.header {
+  font-size: rem(30px);
+}
