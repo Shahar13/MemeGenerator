@@ -1,8 +1,13 @@
-.clean-list {
+.clean_list {
   list-style: none;
 }
-
-.img-responsive {
+.fLeft{
+  float: left;
+}
+.fRight{
+  float: right;
+}
+.img_responsive {
   display: block;
   width: 100%;
   height: auto;
@@ -10,9 +15,8 @@
 }
 
 /* Breakpoint mixins */
-
 @mixin for-mobile-only {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $mobile_breakpoint) {
     @content;
   }
 }

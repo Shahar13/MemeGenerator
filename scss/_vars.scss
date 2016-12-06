@@ -1,16 +1,23 @@
-$container-width: 1063px;
-$mobile-breakpoint: 642px;
+$container_width: 100%;
+$mobile_breakpoint: 642px;
 
 :root {
   /* Layout */
-  --container-width: $container-width;
-  --inner-container-width: 900px;
+  --container_width: $container-width;
+  --inner_container_width: 980px;
+
   /* Fonts */
-  --primary-font: Playfair;
-  --secondary-font: Ubuntu;
+  --primary_font: Playfair;
+  --secondary_font: Ubuntu;
+  
   /* Colors */
-  --main-color: #626262;
-  --sections-bg: #f0f0f0;
+  --main_color: #626262;
+  --sections_bg: #f0f0f0;
+  --white1: #ffffff;
+  --lightblack1: #323232;
+  --darkblack1: #222222;
+  --turquoise1: #2eb398;
+  --darkgrey1: #454545;
 }
 
 

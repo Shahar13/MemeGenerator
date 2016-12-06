@@ -1,7 +1,64 @@
-/*----------  Containers  ----------*/
+
+.main_content{
+  border-top: solid 6px var(--header_black);
+  background: var(--main_content_bg);
+}
 
 .container {
-  width: var(--container-width);
+  width: var(--container_width);
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 0 em(20px);
+  overflow: hidden;
+}
+
+.inner_container {
+  width: var(--inner_container_width);
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+@media (max-width: #{$container_width - 10}) {
+  .container, .inner_container {
+      max-width: 98%;
+  }
+}
+
+.border{border: solid 1px red;}
+
+
+/*----------  Flex Helpers  ----------*/
+.flex {
+  display: flex;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.space_between {
+  justify-content: space-between;
+}
+
+.space_around {
+  justify-content: space-around;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.full_height {
+  height: 100%;
+}
+
+/* Breakpoint mixins */
+@mixin for_mobile_only {
+  @media (max-width: $mobile_breakpoint) {
+    @content;
+  }
 }
