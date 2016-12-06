@@ -1,4 +1,10 @@
 /* MAIN MEME */
+
+.main_container{
+    overflow: hidden;
+    width: 100%;
+}
+
 .memes_container{
     width: 75%;
     padding: 10px;
@@ -10,10 +16,12 @@
 .meme_div{
     display: inline-block;
     // width: 100%;
-    width: 140px;
-    height: 140px;
+    width: 20%;
+    max-height: 140px;
+    min-height: 50px;
     margin: 10px;
-    background: orange;
+    background: url(../assets/send-icon.png) center;
+    background-size: 100% 100%;
 }
 
 .keywords_rating{

@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Meme Generator</title>
-    <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dist/style.css">
+    
+	<!-- bootstrap and jQ -->
+	<script src="lib/jquery/jquery-1.9.1.js"></script>
+	<!--<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
+	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>-->
+	
+    <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="dist/style.css" />
 </head>
 
 <body>
+
     <!-- HEADER -->
     <header class="container lightblack_bg">
         <div class="inner_container">
@@ -45,12 +52,12 @@
     <main class="white_bg">
         <div class="inner_container">
             <h1>Meme Generator</h1>
-            <div class="border " style="overflow: hidden;">
+            <div class="border main_container">
                 <!-- MEMES -->
                 <div class="border memes_container flex flex_wrap space_around fLeft">
-                    <!-- SINGLE MEME -->
+                    <!--SINGLE MEME -->
                     <div class="meme_div">
-                        sdkfjgsdf
+                        <!--<img src="assets/send-icon.png" alt="Meme Image" />-->
                     </div>
                     <!-- SINGLE MEME -->
                     <div class="meme_div">
@@ -87,28 +94,59 @@
     <!-- ABOUT  -->
     <section class="turquoise_bg">
         <div class="inner_container">
-            <div class="border about_left">
+
+            <div class="border about">
                 <div class="about_image fLeft">
-                    sdkfjgsdf
+                    <div class="hexagon shahar">
+                        <div class="hexTop"></div>
+                        <div class="hexBottom"></div>
+                    </div>
                 </div>
-                <div class="flex align_center">
-                    <div>a asdf</div>
-                    <div>as dsdf</div>
-                    <div>asda </div>
-                    <div>asd df</div>
+                <div class="about_text">
+                    <div class="about_name">Shahar</div>
+                    <div class="about_prof">Web developer</div>
+                    <div class="about_desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in
+                    </div>
+                    <div class="apps_links_container">
+                        <div class="">
+                            <i class="fa fa-linkedin" title="LinkedIn" aria-hidden="true"></i>
+                        </div>
+                        <div class="">
+                            <i class="fa fa-facebook" title="FaceBook" aria-hidden="true"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="border about_right">
-                <div class="about_image fRight">
-                    sdkfjgsdf
+
+            <div class="border about">
+                <div class="about_image fLeft">
+                    <div class="hexagon reuven">
+                        <div class="hexTop"></div>
+                        <div class="hexBottom"></div>
+                    </div>
                 </div>
                 <div class="flex flex_wrap align_center">
-                    <div>asdf </div>
-                    <div>asdf </div>
-                    <div>asd df</div>
-                    <div>as sdf</div>
+                    <div class="about_name">Reuven </div>
+                    <div class="about_prof">Web developer</div>
+                    <div class="about_desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in
+                    </div>
+                    <div class="apps_links_container">
+                        <div class="">
+                            <i class="fa fa-linkedin" title="LinkedIn" aria-hidden="true"></i>
+                        </div>
+                        <div class="">
+                            <i class="fa fa-facebook" title="FaceBook" aria-hidden="true"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -116,22 +154,25 @@
     <section class="lightblack_bg">
         <div class="inner_container">
             GET IN TOUCH
-            <br />
-            In order to get in touch use the contact form below
+            <br /> In order to get in touch use the contact form below
             <br clear="all" />
             <div class="border touch_left">
                 <form>
-                    <input placeholder="Name" />
-                    <br />
-                    <input placeholder="Email" />
-                    <br />
-                    <input placeholder="Subject" />
-                    <br />
-                    <textarea cols="60" rows="10" placeholder="Write your message here...">
-                    </textarea>
-                    <br />
-                    <div style="text-align:right;">
-                        <button style="background: #2eb398;">SEND</button>
+                    <div class="form-group">
+                        <input placeholder="Name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Subject" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea cols="60" rows="10" placeholder="Write your message here..." class="form-control">
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn_send" title="Send the form">SEND</button>
                     </div>
                     <br />
                 </form>

@@ -18,12 +18,13 @@
     line-height: var(--main_nav_height);
     box-sizing: border-box;
     font-weight:bold;
-    color: var(--white);
+    color: #ffffff;
     transition: all 0.3s;
 }
 
 .main_nav__item:hover {
-    color: var(--turquoise);
+    color: #2eb398;
+    text-decoration: none;
 }
 .main_nav__inner {
     width: 100%;

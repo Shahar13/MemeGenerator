@@ -1,28 +1,98 @@
 /* ABOUT  */
-.about_left{
+.about{
+
+	font-family: var(--secondary_font);
     float: left;
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
-    // background: pink;
+
+	@include for-mobile-only {
+    	float: none;
+        width: 100%;
+	}  
+}
+.about_text{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+	@include for-mobile-only {
+        // display: flex;
+        // flex-direction: column;
+    }
 }
 
-.about_right{
+.about_name{
+	font-size: rem(30px);
+    color: var(--lightgreen1);
+    width: 100%;    
+    
+	@include for-mobile-only {
+		// float: none;
+	    font-size: rem(24px);
+	}  
+}
+
+.about_prof{
+	font-size: rem(18px);
+    color: var(--darkgreen1);
+    margin: 5px 0 0 0;
+    width: 100%;    
+    
+	@include for-mobile-only {
+		// float: none;
+        font-size: rem(14px);
+	}  
+}
+
+.about_desc{
+	font-size: rem(12px);
+    color: var(--lightgreen1);
+    line-height: 1.6em;
+    margin: 10px 0 0 0;
+	width: 100%;
+	
+    // @include for-mobile-only {
+	
+    // }  
+}
+
+.shahar{
+    background: url(../assets/Shahar.png) center no-repeat;
+    background-size: cover; 
+    margin-right: 20px !important;
+}
+
+.reuven{
+    background: url(../assets/Reuven.jpg) center no-repeat;
+    background-size: cover;
+    margin-right: 20px !important;     
+}
+
+.apps_links_container{
+    // border: solid 1px red;
+    margin-top: 10px;
+    text-align: right;
+    width: 100%;
+    overflow: hidden;
+}
+
+.apps_links_container div{
+    cursor: pointer;
     float: right;
-    text-align:right;
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
     overflow: hidden;
-    // background: pink;
+    // border: solid 1px red;
+    text-align: center;
+    line-height: 26px;
+    color: var(--turquoise1);
 }
-
-.about_image{
-    display: inline-block;
-    width: 140px;
-    height: 140px;
-    overflow: hidden;
-    // margin: 5px;
-    background: orange;
+.apps_links_container div:nth-child(1) {
+     background: var(--darkgreen1);
+}
+.apps_links_container div:nth-child(2) {
+     background: var(--lightgreen1);
 }

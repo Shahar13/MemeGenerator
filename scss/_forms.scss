@@ -6,12 +6,30 @@
 
 .form-control {
   border: none;
-  border-bottom: 1px solid #000;
-  background-color: transparent;
+  // border-bottom: 1px solid #000;
+  background-color: #454545;
+  color: #bebebe;
   width: 100%;
-  padding: 0.5em 0.2em;
+  padding: 0.5em 0.4em;
+  font-family: Lato !important;
 }
 
 .form-group {
   margin: 1em 0;
 }
+
+.btn_send{
+  background: #2eb398;
+  border: 0;
+  padding:  0.4em 1em;
+  color: white;
+  font-size: 0.8em;
+  height: 30px;
+  line-height: 24px;
+  cursor: pointer;
+  float: right;
+}
+
+// TEXTAREA.form-control{
+//   color: white;
+// }
