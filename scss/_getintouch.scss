@@ -1,17 +1,57 @@
 /* GET IN TOUCH */
+.touch{
+    padding: 30px 0 0 0;
+}
+.touch_title{
+    color: #e0e0e0;
+    font-size: rem(30px);
+    font-family: var(--secondary_font);
+}
+
+.touch > SPAN{
+    display: inline-block;
+    margin: -20px 0 0 0;
+    color: #bebebe;
+    font-size: rem(16px);
+    font-family: var(--secondary_font);
+}
+
 .touch_left{
     float: left;
     width: 70%;
-    padding: 20px;
+    padding: 0 20px 20px 0;
     box-sizing: border-box;
     overflow: hidden;
+    @include for-mobile-only {
+        width: 100%;
+        padding: 0;
+    }  
 }
 
 .touch_right{
     float: right;
     width: 30%;
-    padding: 20px;
+    color: #bebebe;
+    font-size: rem(12px);
+    line-height: 1.8em;
+    text-align: justify;
+    padding: 11px 0 0 0;
     box-sizing: border-box;
     overflow: hidden;
+    @include for-mobile-only {
+        width: 100%;
+        font-size: rem(14px);
+    }  
 }
 
+.touch_details{
+    margin: 44px 0 0 0;
+    @include for-mobile-only {
+        margin: 18px 0;
+    }  
+}
+.touch_details I{
+    color: var(--turquoise1);
+    width: 16px;
+    text-align: center;
+}

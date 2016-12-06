@@ -1,18 +1,23 @@
 /* ABOUT  */
 .about{
-
 	font-family: var(--secondary_font);
     float: left;
     width: 50%;
-    padding: 20px;
+    padding: 50px 20px;
     box-sizing: border-box;
     overflow: hidden;
 
 	@include for-mobile-only {
     	float: none;
         width: 100%;
+        padding: 20px;
+        border-bottom: solid 1px grey;
 	}  
 }
+.about:last-child{
+    border: 0;
+}
+
 .about_text{
     display: flex;
     flex-direction: row;

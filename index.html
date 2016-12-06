@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Meme Generator</title>
-    
-	<!-- bootstrap and jQ -->
-	<script src="lib/jquery/jquery-1.9.1.js"></script>
-	<!--<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
+
+    <!-- bootstrap and jQ -->
+    <script src="lib/jquery/jquery-1.9.1.js"></script>
+    <!--<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
 	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>-->
-	
+
     <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="dist/style.css" />
 </head>
@@ -21,21 +21,21 @@
         <div class="inner_container">
             <nav class="main_nav flex align-center">
 
-
-                <input type="checkbox" id="main-nav__mobile_checkbox">
-                <label for="main_nav__mobile-checkbox" class="main_nav__mobile_icon">&#9776;</label>
+                <input type="checkbox" id="main_nav__mobile_checkbox">
+                <label for="main_nav__mobile_checkbox" class="main_nav__mobile_icon">&#9776;</label>
                 <div class="main_nav__inner flex space_between">
-                    <ul class="clean_list main_nav__logo flex align_center">
+                    <!--<ul class="clean_list main_nav__logo flex align_center">
                         <li>
                             <a href="#">
-                            LOGO
-                            <!--<img src="assets/logo.png" alt="Blogin." alt="Blogin." title="Blogin." />-->
-                        </a>
+                                LOGO
+                                <!--<img src="assets/logo.png" alt="Blogin." alt="Blogin." title="Blogin." />-->
+                            <!--</a>
                         </li>
-                    </ul>
-                    <ul class="clean_list main_nav__items flex">
+                    </ul>-->
+                    <ul class="clean_list main_nav__items flex justify_center">
                         <li><a href="#" class="main_nav__item">Portfolio</a></li>
                         <li><a href="#" class="main_nav__item">About</a></li>
+                        <li><a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a></li>
                         <li><a href="#" class="main_nav__item">Blog</a></li>
                         <li><a href="#" class="main_nav__item">Get in touch</a></li>
                     </ul>
@@ -57,27 +57,59 @@
                 <div class="border memes_container flex flex_wrap space_around fLeft">
                     <!--SINGLE MEME -->
                     <div class="meme_div">
-                        <!--<img src="assets/send-icon.png" alt="Meme Image" />-->
+                        <div class="hexagon img1">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
                     </div>
                     <!-- SINGLE MEME -->
                     <div class="meme_div">
-                        sdkfjgsdf
+                        <div class="hexagon img2">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
+                    </div>
+                    <!--SINGLE MEME -->
+                    <div class="meme_div">
+                        <div class="hexagon img3">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
                     </div>
                     <!-- SINGLE MEME -->
                     <div class="meme_div">
-                        sdkfjgsdf
+                        <div class="hexagon img4">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
+                    </div>
+                    <!--SINGLE MEME -->
+                    <div class="meme_div">
+                        <div class="hexagon img5">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
                     </div>
                     <!-- SINGLE MEME -->
                     <div class="meme_div">
-                        sdkfjgsdf
+                        <div class="hexagon img6">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
+                    </div>
+                    <!--SINGLE MEME -->
+                    <div class="meme_div">
+                        <div class="hexagon img7">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
                     </div>
                     <!-- SINGLE MEME -->
                     <div class="meme_div">
-                        sdkfjgsdf
-                    </div>
-                    <!-- SINGLE MEME -->
-                    <div class="meme_div">
-                        sdkfjgsdf
+                        <div class="hexagon img8">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="border keywords_rating fLeft">
@@ -95,7 +127,7 @@
     <section class="turquoise_bg">
         <div class="inner_container">
 
-            <div class="border about">
+            <div class="about">
                 <div class="about_image fLeft">
                     <div class="hexagon shahar">
                         <div class="hexTop"></div>
@@ -121,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="border about">
+            <div class="about">
                 <div class="about_image fLeft">
                     <div class="hexagon reuven">
                         <div class="hexTop"></div>
@@ -153,10 +185,14 @@
     <!-- GET IN TOUCH  -->
     <section class="lightblack_bg">
         <div class="inner_container">
-            GET IN TOUCH
-            <br /> In order to get in touch use the contact form below
-            <br clear="all" />
-            <div class="border touch_left">
+            <div class="touch">
+                <div class="touch_title">
+                    GET IN TOUCH
+                </div>
+                <span>In order to get in touch use the contact form below</span>
+            </div>
+
+            <div class="touch_left">
                 <form>
                     <div class="form-group">
                         <input placeholder="Name" class="form-control">
@@ -177,17 +213,24 @@
                     <br />
                 </form>
             </div>
-            <div class="border touch_right">
-                aszasdf
-            </div>
+            <div class="touch_right">
+                <strong>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.
 
+                <div class="touch_details">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> Elm St. 14/05 Lost City
+                    <br />
+                    <i class="fa fa-phone" aria-hidden="true"></i> + 3528 331 86 35
+                    <br /> 
+                    <i class="fa fa-envelope" aria-hidden="true"></i> info@hexalcorp.com
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="darkblack_bg">
-        <div class="inner_container">
-            FOOTER
+        <div class="inner_container footer">
+            © Copyright 2017 Shahar Haramati C. & Reuven Livne
         </div>
     </footer>
 

@@ -25,9 +25,13 @@
   color: white;
   font-size: 0.8em;
   height: 30px;
-  line-height: 24px;
+  line-height: 23px;
   cursor: pointer;
   float: right;
+}
+
+.btn_send:hover{
+  opacity: 0.8;
 }
 
 // TEXTAREA.form-control{

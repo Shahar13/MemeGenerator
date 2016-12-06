@@ -1,5 +1,4 @@
 /* MAIN MEME */
-
 .main_container{
     overflow: hidden;
     width: 100%;
@@ -20,7 +19,7 @@
     max-height: 140px;
     min-height: 50px;
     margin: 10px;
-    background: url(../assets/send-icon.png) center;
+    // background: url(../assets/send-icon.png) center;
     background-size: 100% 100%;
 }
 
@@ -29,6 +28,56 @@
     overflow: hidden;
     line-height: 1.8em;
     text-align: justify;
-
-    // background: purple;
 }
+
+.img1{
+    background: url(../assets/img1.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img2{
+    background: url(../assets/img2.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img3{
+    background: url(../assets/img3.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img4{
+    background: url(../assets/img4.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img5{
+    background: url(../assets/img5.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img6{
+    background: url(../assets/img6.jpg) center no-repeat;
+    background-size: cover;
+    cursor: pointer; 
+}
+
+.img7{
+    background: url(../assets/img7.jpg) center no-repeat;
+    background-size: cover; 
+    cursor: pointer;
+}
+
+.img8{
+    background: url(../assets/img8.jpg) center no-repeat;
+    background-size: cover; 
+    cursor: pointer;
+    // transition: all 0.5s;
+}
+
+// .img1:hover, img2:hover, img3:hover, img4:hover, img5:hover, img6:hover, img7:hover, img8:hover{
+// }
