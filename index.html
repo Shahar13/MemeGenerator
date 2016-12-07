@@ -7,8 +7,8 @@
 
     <!-- bootstrap and jQ -->
     <script src="lib/jquery/jquery-1.9.1.js"></script>
-    <!--<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
-	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>-->
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
+	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="dist/style.css" />
@@ -29,13 +29,15 @@
                             <a href="#">
                                 LOGO
                                 <!--<img src="assets/logo.png" alt="Blogin." alt="Blogin." title="Blogin." />-->
-                            <!--</a>
+                    <!--</a>
                         </li>
                     </ul>-->
                     <ul class="clean_list main_nav__items flex justify_center">
                         <li><a href="#" class="main_nav__item">Portfolio</a></li>
                         <li><a href="#" class="main_nav__item">About</a></li>
-                        <li><a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a></li>
+                        <li>
+                            <a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a>
+                        </li>
                         <li><a href="#" class="main_nav__item">Blog</a></li>
                         <li><a href="#" class="main_nav__item">Get in touch</a></li>
                     </ul>
@@ -50,11 +52,56 @@
 
     <!-- MAIN -->
     <main class="white_bg">
-        <div class="inner_container">
+        <div class="border inner_container">
             <h1>Meme Generator</h1>
-            <div class="border main_container">
+            <!-- TEMP EDITOR -->
+            <div class="border">
+                <div class="memes_container flex flex_wrap space_around fLeft">
+                    <canvas class="border" id="memeCanvas" width="400" height="300">
+                    </canvas>
+                </div>
+                <div class="border keywords_rating fLeft">
+                    <button>
+                        Go back
+                    </button>
+                    <br />
+                    <textarea name="" id="" cols="20" rows="2"></textarea>
+                    <br />
+
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
+                            <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
+                            <a class="btn align-left" href="#"><i class="icon-align-left"></i></a>
+                        </div>
+<!--                        
+                        <div class="btn-group">
+                            <a class="btn dencrease-font-size" href="#"><i class="icon-minus"></i></a>
+                            <a class="btn increase-font-size" href="#"><i class="icon-plus"></i></a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn line-fill-color-input" href="#"><i class="icon-tint"></i></a>
+                            <a class="btn remove-effects" href="#"><i class="icon-glass"></i></a>
+                            <a class="btn change-font" href="#"><i class="icon-font"></i></a>
+                        </div>
+                        <a class="delete btn"><i class="icon-trash"></i></a>-->
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="main_container">
+                <div class="tools">
+                    <button class="tools_view_btn" title="Gallery view">
+                        <i class="fa fa-th-large" aria-hidden="true"></i>                        
+                    </button>
+                    <button class="tools_view_btn" title="List view">
+                        <i class="fa fa-th-list" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <!-- MEMES -->
-                <div class="border memes_container flex flex_wrap space_around fLeft">
+                <div class="memes_container flex flex_wrap space_around fLeft">
                     <!--SINGLE MEME -->
                     <div class="meme_div">
                         <div class="hexagon img1">
@@ -112,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="border keywords_rating fLeft">
+                <div class="keywords_rating fLeft">
                     KEYWORDS RATINGS
                     <br />
                     <div>
@@ -214,13 +261,14 @@
                 </form>
             </div>
             <div class="touch_right">
-                <strong>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.
+                <strong>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.
+                Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.
 
                 <div class="touch_details">
                     <i class="fa fa-map-marker" aria-hidden="true"></i> Elm St. 14/05 Lost City
                     <br />
                     <i class="fa fa-phone" aria-hidden="true"></i> + 3528 331 86 35
-                    <br /> 
+                    <br />
                     <i class="fa fa-envelope" aria-hidden="true"></i> info@hexalcorp.com
                 </div>
             </div>
@@ -231,6 +279,7 @@
     <footer class="darkblack_bg">
         <div class="inner_container footer">
             © Copyright 2017 Shahar Haramati C. & Reuven Livne
+            <br />asfdasdfasf<br />asfdasdfasf<br />asfdasdfasf
         </div>
     </footer>
 
