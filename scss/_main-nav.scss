@@ -1,7 +1,22 @@
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    --main_nav_height: em(63px);  
+    height: var(--main_nav_height);
+    z-index: 999;
+    box-shadow: 0 3px 3px var(--turquoise1);
+}
+
 .main_nav {
     --main_nav_height: em(63px);  
     height: var(--main_nav_height);
     box-sizing: border-box;
+    // position: fixed;
+    // width: 100%;
+    // height:63px;
 }
 
 .main_nav__mobile_icon,
@@ -83,4 +98,7 @@
 #main_nav__mobile_checkbox:checked ~ .main_nav__inner {
     transform: scaleX(1);
     opacity: 1;
+    left: 0;
+    width: 80%;
+    top: 40px;
 }

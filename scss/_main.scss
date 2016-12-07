@@ -1,13 +1,37 @@
 /* MAIN MEME */
+
+.top_margin_main{
+    margin-top: 56px;
+}
+
 .main_container{
     overflow: hidden;
     width: 100%;
+}
+
+.autocomplete-suggestions{
+    background: gold;
+    // height: 100%;
+    overflow-y: scroll;
+    box-shadow: 5px 5px 10px #000000;
+    padding: 3px;
+}
+
+.tools{
+    margin-bottom: 20px;
 }
 
 .tools input[type=text]{
     background: lightgrey;
     height: 1.8em;
     color: black;
+    padding: 0 4px 2px 4px !important;
+	@include for-mobile-only {
+    	float: none;
+        width: 80%;
+        padding: 10px 2px;
+        // margin: 10px;
+	}  
 }
 
 .tools BUTTON{
@@ -15,6 +39,11 @@
     height: 1.8em;
     line-height: 1.7em;
     border: solid 1px grey;
+	@include for-mobile-only {
+    	float: none;
+        width: 80%;
+        margin: 10px 0;
+	}
 }
 
 .tools_view_btn{
@@ -23,6 +52,11 @@
     border: solid 1px grey;
     display: inline-block;
     border-radius: 3px;
+	@include for-mobile-only {
+    	float: none;
+        // width: 80%;
+        // margin: 5px 10px;
+	}
 }
 .tools_view_btn:hover{
     color: var(--turquoise1);
@@ -33,11 +67,10 @@
 
 .memes_container{
     width: 75%;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
     box-sizing: border-box;
     overflow: hidden;
     
-    // background: pink;
 	@include for-mobile-only {
     	float: none;
         width: 100%;

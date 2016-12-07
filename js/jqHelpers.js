@@ -1,6 +1,4 @@
 'use strict';
-console.log('View Functions');
-
 
 //jQuery helper funcs
 $(document).ready(function() {
@@ -16,5 +14,30 @@ $(document).ready(function() {
     });
     $('#listView').on('click', function(){
         $('#memeContainer').addClass('felx_column');
+    });
+
+    //open canvas editor on hexagon clicked
+	$('.meme_div').on('click', function(){
+        $('#canvasEditor').slideToggle();
+        console.log($(this).attr('id'));
+	});
+
+    //close the canvas editor
+	$('#closeCanvasEditor').on('click', function(){
+        $('#canvasEditor').slideUp('slow');        
+	});
+    
+    //scroll the page to sections
+	$('#scrollPortfolio').on('click', function(){
+        $('body').animate({ scrollTop: $('#portfolio').offset().top-56 }, 1000);
+        return false;
+    });
+	$('#scrollAbout').on('click', function(){
+        $('body').animate({ scrollTop: $('#about').offset().top-56 }, 1000);
+        return false;
+    });
+	$('#scrollGetintouch').on('click', function(){
+        $('body').animate({ scrollTop: $('#getintouch').offset().top-56 }, 1000);
+        return false;
     });
 });

@@ -66,3 +66,9 @@
     @content;
   }
 }
+
+@mixin for_tablet_only {
+  @media (max-width: $mobile_breakpoint) {
+    @content;
+  }
+}

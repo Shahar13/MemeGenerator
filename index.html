@@ -5,17 +5,8 @@
     <meta charset="UTF-8">
     <title>Meme Generator</title>
 
-
     <!-- bootstrap and jQ -->
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
-    <script src="lib/jquery/jquery-1.9.1.js"></script>
-    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-
-
-    <script type="text/javascript" src="lib/jquery/autocomplete/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="lib/jquery/autocomplete/js/jquery.autocomplete.min.js"></script>
-    <script type="text/javascript" src="lib/jquery/autocomplete/js/currency-autocomplete.js"></script>
-
     <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="dist/style.css" />
 </head>
@@ -23,18 +14,16 @@
 <body>
 
     <!-- HEADER -->
-    <header class="container lightblack_bg">
+    <header class="fixed container lightblack_bg">
         <div class="inner_container">
             <nav class="main_nav flex">
                 <input type="checkbox" id="main_nav__mobile_checkbox">
                 <label for="main_nav__mobile_checkbox" class="main_nav__mobile_icon">&#9776;</label>
                 <div class="main_nav__inner flex space_between">
                     <ul class="clean_list main_nav__items flex justify_center">
-                        <li><a href="#" class="main_nav__item align-center">Portfolio</a></li>
-                        <li><a href="#" class="main_nav__item align-center">About</a></li>
-                        <!--<li><a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a></li>-->
-                        <li><a href="#" class="main_nav__item align-center">Blog</a></li>
-                        <li><a href="#" class="main_nav__item align-center">Get in touch</a></li>
+                        <li><a href="#" id="scrollPortfolio" class="main_nav__item align-center">Portfolio</a></li>
+                        <li><a href="#" id="scrollAbout" class="main_nav__item align-center">About</a></li>
+                        <li><a href="#" id="scrollGetintouch" class="main_nav__item align-center">Get in touch</a></li>
                     </ul>
                 </div>
             </nav>
@@ -43,53 +32,16 @@
     <!-- END OF Header-->
 
     <!-- MAIN -->
-    <main class="white_bg">
-        <div class="border inner_container">
-            <h1>Meme Generator</h1>
-            <!-- TEMP EDITOR -->
-            <div class="border">
-                <div class="memes_container flex flex_wrap space_around fLeft">
-                    <canvas class="border" id="memeCanvas" width="400" height="300">
-                    </canvas>
-                </div>
-                <div class="border keywords_rating fLeft">
-                    <button>
-                        Go back
-                    </button>
-                    <br />
-                    <textarea name="" id="" cols="20" rows="1"></textarea>
-                    <br />
-                    <input id="colorPicker" onclick="setColor()" type="color" />
-                    <button id="incFontSize" onclick="incFontSize()">font +</button>
-                    <button id="decFontSize" onclick="decFontSize()">font -</button>
-                    <select id="fontFamily" onclick="setFontFamily()">
-                        <option value="">MavenProRegular</option>
-                        <option value="">Arial</option>
-                        <option value="">Lato</option>
-                    </select>
-                    <div class="btn-toolbar">
-                        <div class="btn-group">
-                            <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
-                            <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
-                            <a class="btn align-left" href="#"><i class="icon-align-left"></i></a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn dencrease-font-size" href="#"><i class="icon-minus"></i></a>
-                            <a class="btn increase-font-size" href="#"><i class="icon-plus"></i></a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn line-fill-color-input" href="#"><i class="icon-tint"></i></a>
-                            <a class="btn remove-effects" href="#"><i class="icon-glass"></i></a>
-                            <a class="btn change-font" href="#"><i class="icon-font"></i></a>
-                        </div>
-                        <a class="delete btn"><i class="icon-trash"></i></a>
-                    </div>
-                </div>
-            </div>
+    <main class="top_margin_main white_bg">
+        <span id="portfolio"></span>
+        <div class="inner_container">
+            <!--content main-->
 
+            <h1>Meme Generator</h1>
             <div class="main_container">
+                <!-- TOOLS -->
                 <div class="flex space_between tools">
-                    <form class="form-inline border flex space_around" style="width: 100%;">
+                    <form class="form-inline flex space_around" style="width: 100%;">
                         <div class="form-group">
                             <span id="galleryView" class="SELECTOR_btn_view tools_view_btn" title="Gallery view">
                                 <i class="fa fa-th-large" aria-hidden="true"></i>                        
@@ -113,64 +65,117 @@
                     </form>
                 </div>
 
+                <!-- EDITOR -->
+                <div id="canvasEditor" class="canvas_editor_wrap">
+                    <div class="border canvas_editor">
+                        <div class="memes_container flex flex_wrap space_around fLeft">
+                            <canvas class="border" id="memeCanvas" width="400" height="300">
+                            </canvas>
+                        </div>
+                        <div class="border keywords_rating fLeft">
+                            <button id="closeCanvasEditor">
+                                Go back
+                            </button>
+                            <br />
+                            <input name="" id="lineText" onkeyup="getUserLine()" />
+                            <br />
+                            <button id="incFontSize" onclick="incFontSize()">font +</button>
+                            <button id="decFontSize" onclick="decFontSize()">font -</button>
+                            <button id="alignLeft" onclick="alignLeft()">Left</button>
+                            <button id="alignRight" onclick="alignRight()">Right</button>
+                            <button id="alignCenter" onclick="alignCenter()">Center</button>
+                            <input id="colorPicker" oninput="setColor()" type="color" />
+                            <select id="fontFamily" onchange="setFontFamily()">
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Comics Sans MS">Comics Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                            </select>
+                            <div class="btn-toolbar">
+                                <div class="btn-group">
+                                    <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
+                                    <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
+                                    <a class="btn align-left" href="#"><i class="icon-align-left"></i></a>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn dencrease-font-size" href="#"><i class="icon-minus"></i></a>
+                                    <a class="btn increase-font-size" href="#"><i class="icon-plus"></i></a>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn line-fill-color-input" href="#"><i class="icon-tint"></i></a>
+                                    <a class="btn remove-effects" href="#"><i class="icon-glass"></i></a>
+                                    <a class="btn change-font" href="#"><i class="icon-font"></i></a>
+                                </div>
+                                <a class="delete btn"><i class="icon-trash"></i></a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- END OF Editor-->
+
                 <!-- MEMES -->
                 <div id="memeContainer" class="memes_container flex flex_wrap space_around fLeft">
+
                     <!--SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img1" class="meme_div">
                         <div class="hexagon img1">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!-- SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img2" class="meme_div">
                         <div class="hexagon img2">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!--SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img3" class="meme_div">
                         <div class="hexagon img3">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!-- SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img4" class="meme_div">
                         <div class="hexagon img4">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!--SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img5" class="meme_div">
                         <div class="hexagon img5">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!-- SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img6" class="meme_div">
                         <div class="hexagon img6">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!--SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img7" class="meme_div">
                         <div class="hexagon img7">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
                     <!-- SINGLE MEME -->
-                    <div class="meme_div">
+                    <div id="img8" class="meme_div">
                         <div class="hexagon img8">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
                     </div>
+
                 </div>
                 <div class="keywords_rating fLeft">
                     KEYWORDS RATINGS
@@ -179,11 +184,16 @@
                         summer animals cute movies flowers funny horror faces kids emotions
                     </div>
                 </div>
+
+
             </div>
+
+            <!--END OF content main-->
         </div>
     </main>
 
     <!-- ABOUT  -->
+    <span id="about"></span>
     <section class="turquoise_bg">
         <div class="inner_container">
 
@@ -243,6 +253,7 @@
     </section>
 
     <!-- GET IN TOUCH  -->
+    <span id="getintouch"></span>
     <section class="lightblack_bg">
         <div class="inner_container">
             <div class="touch">
@@ -253,7 +264,7 @@
             </div>
 
             <div class="touch_left">
-                <form>
+                <form id="contactForm">
                     <div class="form-group">
                         <input placeholder="Name" class="form-control">
                     </div>
@@ -295,6 +306,14 @@
             <br />asfdasdfasf<br />asfdasdfasf<br />asfdasdfasf
         </div>
     </footer>
+
+    <!-- INCLUDES -->
+    <script src="lib/jquery/jquery-1.9.1.js"></script>
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="lib/jquery/autocomplete/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="lib/jquery/autocomplete/js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="lib/jquery/autocomplete/js/currency-autocomplete.js"></script>
 
     <script src="js/jqHelpers.js"></script>
     <script src="js/main.js"></script>
