@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+// (function() {
 
 console.log('Hello Meme');
 
@@ -12,6 +12,7 @@ var LINE2 = 1;
 var gMemes=[];
 var gRating;
 var gLines=[];
+var gImage = {contect:null, url:''};
 
 $(document).ready(function(){
     var meme = {id:0, url:'', keyWords:[], rating:0};
@@ -20,13 +21,18 @@ $(document).ready(function(){
         gMemes.push(meme);
     };
 
-    var line = {posX:40, posY:30, color:'#000000', font:'Segoe UI', fontSize:20, text:'text1 text1'};
+    var line = {posX:50, posY:50, color:'#000000', font:'Segoe UI', fontSize:20, text:'text1 text1'};
     gLines.push(line);
-    line = {posX:40, posY:270, color:'#000000', font:'Segoe UI', fontSize:20, text:'textA textB'};     
+    line = {posX:50, posY:325, color:'#000000', font:'Segoe UI', fontSize:20, text:'textA textB'};     
     gLines.push(line);
 
-    doEditor(gMemes[1].url);
+//    doEditor(gMemes[1].url);
 });
+
+
+function getUserImg(idx){
+    doEditor(gMemes[idx-1].url);
+}
 
 // function called when user click on image.
 // need to enter editor mode with that image.
@@ -34,39 +40,73 @@ function doEditor(imgUrl){
         // memeCanvas
     var canvas = document.querySelector('#memeCanvas');
     var ctx = canvas.getContext('2d');
-    drawOnCanvas(imgUrl, ctx);
+    gImage.context = ctx;
+    gImage.url = imgUrl;
+    drawOnCanvas();
 }
 
-function drawOnCanvas(imgUrl,ctx) {
+function drawOnCanvas() {
     var img = new Image();
  //   img.src = "assest/img1.jpg";
-    img.src = imgUrl;
+    img.src = gImage.url;
 
     img.onload = function () {
 
-        ctx.drawImage(img, 0, 0, 400, 300);
+        gImage.context.drawImage(img, 0, 0, 500, 350);
         for (var i = 0; i < GLINES_SIZE; i++) {
-            ctx.font = gLines[i].fontSize+'px '+ gLines[i].font;
-            ctx.fillStyle = gLines[i].color;
-            ctx.fillText(gLines[i].text, gLines[i].posX, gLines[i].posY);
+   //         console.log('gLine ',i, gLines[i]);          
+            gImage.context.font = gLines[i].fontSize+'px '+ gLines[i].font;
+            gImage.context.fillStyle = gLines[i].color;
+            gImage.context.fillText(gLines[i].text, gLines[i].posX, gLines[i].posY);
         }
     };
 }
 
+function getUserLine(){
+ //   var line = document.querySelector("#lineText");
+    gLines[0].text = document.querySelector("#lineText").value;
+ //   console.log('line=',line.value);
+    drawOnCanvas();
 
-function setFontColor(lineIdx,color){
-    gLines[lineIdx].color = color;
 }
 
-function setFont(lineIdx, font){
-    gLines[lineIdx].font = color;
+function setColor(lineIdx,color){
+
+    var color = document.querySelector("#colorPicker").value.toString();
+    console.log('color', color);
+    gLines[0].color = color;
+    drawOnCanvas();
 }
 
-function setFontSize(lineIdx, size){
-    gLines[lineIdx].size = size;
+function setFontFamily(){  
+ //   console.log('in setFontFamily');   
+    var font = document.querySelector("#fontFamily").value;
+ //   console.log('font',font);   
+    gLines[0].font = font;
+    drawOnCanvas();
 }
 
+function incFontSize(){
+   var inc = document.querySelector("#incFontSize").value;
+    gLines[0].fontSize += 2;
+    drawOnCanvas();
 
+}
+
+function decFontSize(){
+   var inc = document.querySelector("#decFontSize").value;
+    gLines[0].fontSize -= 2;
+    drawOnCanvas();
+}
+
+function alignLeft(){
+}
+
+function alignRight(){
+}
+
+function alignCenter(){
+}
 
 
 // function called when user is in editor div and
@@ -86,5 +126,5 @@ function setFontSize(lineIdx, size){
 // build a rating array. array key is the keyword.
 // array value is the rating (number of time it was searched).
 // then
-})();
+// })();
 
