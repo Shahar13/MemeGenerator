@@ -6,7 +6,6 @@
     <title>Meme Generator</title>
 
     <!-- bootstrap and jQ -->
-    <script src="lib/jquery/jquery-1.9.1.js"></script>
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
 	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 
@@ -19,7 +18,7 @@
     <!-- HEADER -->
     <header class="container lightblack_bg">
         <div class="inner_container">
-            <nav class="main_nav flex align-center">
+            <nav class="main_nav flex">
 
                 <input type="checkbox" id="main_nav__mobile_checkbox">
                 <label for="main_nav__mobile_checkbox" class="main_nav__mobile_icon">&#9776;</label>
@@ -33,18 +32,13 @@
                         </li>
                     </ul>-->
                     <ul class="clean_list main_nav__items flex justify_center">
-                        <li><a href="#" class="main_nav__item">Portfolio</a></li>
-                        <li><a href="#" class="main_nav__item">About</a></li>
-                        <li>
-                            <a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a>
-                        </li>
-                        <li><a href="#" class="main_nav__item">Blog</a></li>
-                        <li><a href="#" class="main_nav__item">Get in touch</a></li>
+                        <li><a href="#" class="main_nav__item align-center">Portfolio</a></li>
+                        <li><a href="#" class="main_nav__item align-center">About</a></li>
+                        <li><a href="#" class="main_nav__item"><img style="margin-top: 40px;" src="assets/logo.png" alt="LOGO" /></a></li>
+                        <li><a href="#" class="main_nav__item align-center">Blog</a></li>
+                        <li><a href="#" class="main_nav__item align-center">Get in touch</a></li>
                     </ul>
                 </div>
-
-
-
             </nav>
         </div>
     </header>
@@ -233,10 +227,10 @@
     <section class="lightblack_bg">
         <div class="inner_container">
             <div class="touch">
-                <div class="touch_title">
+                <div class="touch_title form_title_color">
                     GET IN TOUCH
                 </div>
-                <span>In order to get in touch use the contact form below</span>
+                <span class="form_text_color">In order to get in touch use the contact form below</span>
             </div>
 
             <div class="touch_left">
@@ -261,10 +255,9 @@
                 </form>
             </div>
             <div class="touch_right">
-                <strong>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.
-                Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.
+                <strong form_text_color>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.
 
-                <div class="touch_details">
+                <div class="touch_details ">
                     <i class="fa fa-map-marker" aria-hidden="true"></i> Elm St. 14/05 Lost City
                     <br />
                     <i class="fa fa-phone" aria-hidden="true"></i> + 3528 331 86 35
@@ -276,14 +269,14 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="darkblack_bg">
-        <div class="inner_container footer">
+    <footer class="darkblack_bg align_center">
+        <div class="inner_container footer darkgrey">
             © Copyright 2017 Shahar Haramati C. & Reuven Livne
             <br />asfdasdfasf<br />asfdasdfasf<br />asfdasdfasf
         </div>
     </footer>
 
-
+    <script src="lib/jquery/jquery-1.9.1.js"></script>
     <script src="js/main.js"></script>
 
 </body>
