@@ -4,15 +4,30 @@
     width: 100%;
 }
 
-.tools{
-    border: solid 1px red;
+.tools input[type=text]{
+    background: lightgrey;
+    height: 1.8em;
+    color: black;
+}
+
+.tools BUTTON{
+    background: var(--turquoise1);
+    height: 1.8em;
+    line-height: 1.7em;
+    border: solid 1px grey;
 }
 
 .tools_view_btn{
     padding: 2px 5px 0 5px;
     cursor: pointer;
+    border: solid 1px grey;
+    display: inline-block;
+    border-radius: 3px;
 }
 .tools_view_btn:hover{
+    color: var(--turquoise1);
+}
+.tools_view_btn_checked{
     color: var(--turquoise1);
 }
 
