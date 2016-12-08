@@ -34,7 +34,7 @@
 	}  
 }
 
-/* change position of .tools_view_btn from first to last */
+/* change position of .tools_view_btn */
 .tools form .form-group:first-child{
 	@include for-mobile-only {
         order: 99;
@@ -58,7 +58,7 @@
 .tools BUTTON{
     background: var(--turquoise1);
     height: 1.8em;
-    line-height: 1.7em;
+    line-height: 0.7em;
     border: solid 1px grey;
 	@include for-mobile-only {
     	float: none;
@@ -87,11 +87,10 @@
 }
 
 .memes_container{
-    width: 75%;
+    width: 65%;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
     overflow: hidden;
-    
 	@include for-mobile-only {
     	float: none;
         width: 100%;
@@ -111,7 +110,7 @@
 }
 
 .keywords_rating{
-    width: 25%;
+    width: 35%;
     overflow: hidden;
     line-height: 1.8em;
     text-align: justify;

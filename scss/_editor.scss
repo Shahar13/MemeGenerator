@@ -1,3 +1,56 @@
+
+.canvas_editor_wrap{
+    position: relative;
+    width:100%;
+    height:400px;
+    // height:10px;
+    display:none;
+    background:  var(--turquoise1);
+    box-shadow: inset 0px 0px 23px #000000;
+    border-radius: 5px;    
+	@include for-mobile-only {
+    	height: 800px;
+	}  
+}
+
+.canvas_editor{ 
+    position: absolute; 
+    width:100%;
+    height:400px;
+    z-index: 30; 
+    top: 12px; 
+    left:0;
+}
+
+
+.canvas_editor_img{
+    margin: 5px 0 0 0;
+    width: 65%;
+    box-sizing: border-box;
+    overflow: hidden;
+    // background: gold;
+    text-align: center;    
+	@include for-mobile-only {
+    	float: none;
+        width: 100%;
+        padding: 10px 0;
+	}  
+}
+
+.canvas_editor_meme{
+    width: 33%;
+    overflow: hidden;
+    line-height: 1.8em;
+    text-align: justify;
+    margin: 5px auto;
+	@include for-mobile-only {
+    	float: none;
+        width: 96%;
+        padding: 10px 0;
+        margin: 0 auto;
+	}  
+}
+
 .btn-group {
     position: relative;
     display: inline-block;
@@ -6,24 +59,61 @@
     vertical-align: middle;
 }
 
-.btn {
-    padding: 1px 10px 5px 10px;
+.btn_gen {
+    width: 100%;
+    border-radius: 3px;
+    border: solid 1px #267e6c;
+    box-shadow: inset 0 0 5px #267e6c;
+    padding-top: 7px;
 }
 
-.canvas_editor_wrap{
-    position: relative;
-    width:100%;
-    height:327px;
-    // height:10px;
-    display:none;
+.btn_back{
+    width: 50%;
+    float: left;
 }
 
-.canvas_editor{ 
-    position: absolute; 
-    width:100%;
-    height:327px;
-    background: gold;
-    z-index: 30; 
-    top: 12px; 
-    left:0;
+.c_e_input{
+    border: solid 1px #267e6c;
+    box-shadow: inset 0 0 5px #267e6c;
+    border-radius: 3px;
+    height: 30px;
+    width: 100%;
+    margin-top: 25px;
+    padding: 2px 5px;
+}
+
+ .c_e_btn_1{
+    margin: 5px 0;
+    border-radius: 3px;
+    border: solid 1px #267e6c;
+    box-shadow: inset 0 0 5px #267e6c;
+ }
+
+ .btn_color{
+    height: 34px;
+    width: 50px;
+    padding: 5px 8px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: solid 1px #267e6c;
+    box-shadow: inset 0 0 5px #267e6c;
+ }
+
+ .c_e_select{
+    border: solid 1px #267e6c;
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px #267e6c;
+    height: 30px;
+    width: 100%;
+    // margin-top: 5px;
+    padding: 2px 5px;
+ }
+
+.btn_save{
+    width: 50%;
+    float: right;
+    padding-top: 7px;
+    margin-top: 38px;
+    border: solid 1px #267e6c;
+    box-shadow: inset 0 0 5px #267e6c;
 }

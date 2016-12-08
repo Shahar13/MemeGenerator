@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dist/style.css" />
 </head>
 
-<body>
+<body onload="init()">
 
     <!-- HEADER -->
     <header class="fixed container lightblack_bg">
@@ -52,8 +52,8 @@
                         </div>
                         <div class="form-group">
                             <input class="form-control" name="currency" id="autocomplete" type="text" />
-                            <button class="btn btn-default">
-                                Search keywords
+                            <button onclick="return false; autoComplete();" class="btn btn-default">
+                                Search keyword
                             </button>
                         </div>
                         <div class="form-group">
@@ -67,49 +67,68 @@
 
                 <!-- EDITOR -->
                 <div id="canvasEditor" class="canvas_editor_wrap">
-                    <div class="border canvas_editor">
-                        <div class="memes_container flex flex_wrap space_around fLeft">
-                            <canvas class="border" id="memeCanvas" width="400" height="300">
+                    <div class="canvas_editor">
+                        <div class="canvas_editor_img fLeft">
+                            <canvas class="" id="memeCanvas" width="500" height="365">
                             </canvas>
                         </div>
-                        <div class="border keywords_rating fLeft">
-                            <button id="closeCanvasEditor">
+                        <div class="canvas_editor_meme fLeft">
+                            <button class="btn btn-default btn_gen btn_back" id="closeCanvasEditor">
                                 Go back
                             </button>
                             <br />
-                            <input name="" id="lineText1" onkeyup="getUserLine(1)" />
+                            <input class="c_e_input" id="lineText1" onkeyup="getUserLine(1)" />
                             <br />
-                            <button id="incFontSize1" onclick="incFontSize(1)">+</button>
-                            <button id="decFontSize1" onclick="decFontSize(1)">-</button>
-                            <button id="alignLeft1" onclick="alignLeft(1)">Left</button>
-                            <button id="alignRight1" onclick="alignRight(1)">Right</button>
-                            <button id="alignCenter1" onclick="alignCenter(1)">Center</button>
-                            <input id="colorPicker1" oninput="setColor(1)" type="color" />
-                            <select id="fontFamily1" onchange="setFontFamily(1)">
+                            <div class="flex space_between">
+                                <div class="btn-group c_e_btn_1" role="group" aria-label="Increase/Decrease Font">
+                                    <button class="btn btn-default" id="incFontSize1" onclick="incFontSize(1)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="decFontSize1" onclick="decFontSize(1)"><i class="fa fa-minus-square-o" aria-hidden="true"></i></button>
+                                </div>
+                                <div class="btn-group c_e_btn_1" role="group" aria-label="Increase/Decrease Font">
+                                    <button class="btn btn-default" id="alignLeft1" onclick="alignLeft(1)"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="alignCenter1" onclick="alignCenter(1)"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="alignRight1" onclick="alignRight(1)"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+                                </div>
+
+                                <input class="btn btn-default btn_color" value="#ff00ff" id="colorPicker1" oninput="setColor(1)" type="color" />
+                            </div>
+                            <select class="c_e_select fRight" id="fontFamily1" onchange="setFontFamily(1)">
                                 <option value="Helvetica">Helvetica</option>
                                 <option value="Comics Sans MS">Comics Sans MS</option>
                                 <option value="Courier">Courier</option>
                                 <option value="Times New Roman">Times New Roman</option>
                             </select>
                             <br />
-                            <input name="" id="lineText2" onkeyup="getUserLine(2)" />
+
+                            <input class="c_e_input" id="lineText2" onkeyup="getUserLine(2)" />
                             <br />
-                            <button id="incFontSize2" onclick="incFontSize(2)">+</button>
-                            <button id="decFontSize2" onclick="decFontSize(2)">-</button>
-                            <button id="alignLeft2" onclick="alignLeft(2)">Left</button>
-                            <button id="alignRight2" onclick="alignRight(2)">Right</button>
-                            <button id="alignCenter2" onclick="alignCenter(2)">Center</button>
-                            <input id="colorPicker2" oninput="setColor(2)" type="color" />
-                            <select id="fontFamily2" onchange="setFontFamily(2)">
+
+                            <div class="flex space_between">
+                                <div class="btn-group c_e_btn_1" role="group" aria-label="Increase/Decrease Font">
+                                    <button class="btn btn-default" id="incFontSize2" onclick="incFontSize(2)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="decFontSize2" onclick="decFontSize(2)"><i class="fa fa-minus-square-o" aria-hidden="true"></i></button>
+                                </div>
+                                <div class="btn-group c_e_btn_1" role="group" aria-label="Increase/Decrease Font">
+                                    <button class="btn btn-default" id="alignLeft2" onclick="alignLeft(2)"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="alignCenter2" onclick="alignCenter(2)"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+                                    <button class="btn btn-default" id="alignRight2" onclick="alignRight(2)"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+                                </div>
+                                <input class="btn btn-default btn_color" value="#ff0000" id="colorPicker2" oninput="setColor(2)" type="color" />
+                            </div>
+                            
+                            <select class="c_e_select fRight" id="fontFamily2" onchange="setFontFamily(2)">
                                 <option value="Helvetica">Helvetica</option>
                                 <option value="Comics Sans MS">Comics Sans MS</option>
                                 <option value="Courier">Courier</option>
                                 <option value="Times New Roman">Times New Roman</option>
                             </select>
-                            <button id="save">
+                            <br />
+                            
+                            <button class="btn btn-default btn_save" id="save">
                                 Save
                             </button>
-                            <div class="btn-toolbar">
+                            
+                            <!--<div class="border btn-toolbar">
                                 <div class="btn-group">
                                     <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
                                     <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
@@ -125,7 +144,7 @@
                                     <a class="btn change-font" href="#"><i class="icon-font"></i></a>
                                 </div>
                                 <a class="delete btn"><i class="icon-trash"></i></a>
-                            </div>
+                            </div>-->
                         </div>
 
                     </div>
