@@ -10,25 +10,26 @@ var LINE1 = 0;
 var LINE2 = 1;
 
 var gMemes=[];
-var gRating;
+// var gRating;
 var gLines=[];
-var gImage = {contect:null, url:''};
+var gImage = {context:null, url:'',width:400, height:300};
 
 $(document).ready(function(){
-    var meme = {id:0, url:'', keyWords:[], rating:0};
+    var meme = {id:0, url:'', keyWords:[]};
    for (var i = 0; i < GMEMES_SIZE; i++) {
-        meme = {id:i+1, url:'../assets/img'+(i+1)+'.jpg', keyWords:[], rating:0};
+        meme = {id:i+1, url:'../assets/img'+(i+1)+'.jpg', keyWords:[] };
         gMemes.push(meme);
     };
 
-    var line = {posX:50, posY:50, color:'#000000', font:'Segoe UI', fontSize:20, text:'text1 text1'};
+    var line = {posX:40, posY:40, color:'#000000', font:'Helvetica', fontSize:16, 
+    text:'', align:'start'};
     gLines.push(line);
-    line = {posX:50, posY:325, color:'#000000', font:'Segoe UI', fontSize:20, text:'textA textB'};     
+    line = {posX:40, posY:260, color:'#000000', font:'Helvetica', fontSize:16, 
+    text:'', align:'start' };     
     gLines.push(line);
 
 //    doEditor(gMemes[1].url);
 });
-
 
 function getUserImg(idx){
     doEditor(gMemes[idx-1].url);
@@ -42,6 +43,8 @@ function doEditor(imgUrl){
     var ctx = canvas.getContext('2d');
     gImage.context = ctx;
     gImage.url = imgUrl;
+    gImage.width = canvas.width;
+    gImage.height = canvas.height;
     drawOnCanvas();
 }
 
@@ -51,15 +54,16 @@ function drawOnCanvas() {
     img.src = gImage.url;
 
     img.onload = function () {
-
-        gImage.context.drawImage(img, 0, 0, 500, 350);
-        for (var i = 0; i < GLINES_SIZE; i++) {
-   //         console.log('gLine ',i, gLines[i]);          
-            gImage.context.font = gLines[i].fontSize+'px '+ gLines[i].font;
-            gImage.context.fillStyle = gLines[i].color;
-            gImage.context.fillText(gLines[i].text, gLines[i].posX, gLines[i].posY);
+        gImage.context.drawImage(img, 0, 0, gImage.width, gImage.height);
+        gLines.forEach(function(line) { 
+            debugger 
+                console.log('line ', line);          
+                gImage.context.font = line.fontSize+'px '+ line.font;
+                gImage.context.textAlign = line.align;  
+                gImage.context.fillStyle = line.color;
+                gImage.context.fillText(line.text, line.posX, line.posY);
+            });
         }
-    };
 }
 
 function getUserLine(){
@@ -67,11 +71,9 @@ function getUserLine(){
     gLines[0].text = document.querySelector("#lineText").value;
  //   console.log('line=',line.value);
     drawOnCanvas();
-
 }
 
 function setColor(lineIdx,color){
-
     var color = document.querySelector("#colorPicker").value.toString();
     console.log('color', color);
     gLines[0].color = color;
@@ -100,14 +102,27 @@ function decFontSize(){
 }
 
 function alignLeft(){
+    console.log('in alignLeft');   
+
+    gLines[0].textAlign = "start";
+    gLines[0].posX = 40;
+    drawOnCanvas();
 }
 
 function alignRight(){
+    console.log('in alignRight');   
+
+    gLines[0].textAlign = "end";
+    gLines[0].posX = gImage.width-40;
+    drawOnCanvas();
 }
 
 function alignCenter(){
+    console.log('in alignCenter');   
+    gLines[0].textAlign = "center";
+    gLines[0].posX = 200;
+    drawOnCanvas();    
 }
-
 
 // function called when user is in editor div and
 // wish to return to main div to choose another meme to edit.
