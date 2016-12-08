@@ -19,7 +19,7 @@ $(document).ready(function() {
     //open canvas editor on hexagon clicked
 	$('.meme_div').on('click', function(){
         $('#canvasEditor').slideToggle();
-        console.log($(this).attr('id'));
+        // console.log($(this).attr('id'));
 	});
 
     //close the canvas editor
@@ -29,15 +29,15 @@ $(document).ready(function() {
     
     //scroll the page to sections
 	$('#scrollPortfolio').on('click', function(){
-        $('body').animate({ scrollTop: $('#portfolio').offset().top-56 }, 1000);
+        $('body').animate({ scrollTop: $('#portfolio').offset().top }, 1000);
         return false;
     });
 	$('#scrollAbout').on('click', function(){
-        $('body').animate({ scrollTop: $('#about').offset().top-56 }, 1000);
+        $('body').animate({ scrollTop: $('#about').offset().top }, 1000);
         return false;
     });
 	$('#scrollGetintouch').on('click', function(){
-        $('body').animate({ scrollTop: $('#getintouch').offset().top-56 }, 1000);
+        $('body').animate({ scrollTop: $('#getintouch').offset().top }, 1000);
         return false;
     });
 });

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Meme Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- bootstrap and jQ -->
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
@@ -14,7 +15,7 @@
 <body onload="init()">
 
     <!-- HEADER -->
-    <header class="fixed container lightblack_bg">
+    <header class="container lightblack_bg">
         <div class="inner_container">
             <nav class="main_nav flex">
                 <input type="checkbox" id="main_nav__mobile_checkbox">
@@ -32,7 +33,7 @@
     <!-- END OF Header-->
 
     <!-- MAIN -->
-    <main class="top_margin_main white_bg">
+    <main class="white_bg">
         <span id="portfolio"></span>
         <div class="inner_container">
             <!--content main-->
@@ -77,7 +78,7 @@
                                 Go back
                             </button>
                             <br />
-                            <input class="c_e_input" id="lineText1" onkeyup="getUserLine(1)" />
+                            <input class="c_e_input" id="lineText1" onkeyup="setTextLine(1)" />
                             <br />
                             <div class="flex space_between">
                                 <div class="btn-group c_e_btn_1" role="group" aria-label="Increase/Decrease Font">
@@ -100,7 +101,7 @@
                             </select>
                             <br />
 
-                            <input class="c_e_input" id="lineText2" onkeyup="getUserLine(2)" />
+                            <input class="c_e_input" id="lineText2" onkeyup="setTextLine(2)" />
                             <br />
 
                             <div class="flex space_between">
@@ -124,27 +125,9 @@
                             </select>
                             <br />
                             
-                            <button class="btn btn-default btn_save" id="save">
+                            <button onclick="return false; saveImage(this)" class="btn btn-default btn_save" id="save">
                                 Save
                             </button>
-                            
-                            <!--<div class="border btn-toolbar">
-                                <div class="btn-group">
-                                    <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
-                                    <a class="btn align-center" href="#"><i class="icon-align-center"></i></a>
-                                    <a class="btn align-left" href="#"><i class="icon-align-left"></i></a>
-                                </div>
-                                <div class="btn-group">
-                                    <a class="btn dencrease-font-size" href="#"><i class="icon-minus"></i></a>
-                                    <a class="btn increase-font-size" href="#"><i class="icon-plus"></i></a>
-                                </div>
-                                <div class="btn-group">
-                                    <a class="btn line-fill-color-input" href="#"><i class="icon-tint"></i></a>
-                                    <a class="btn remove-effects" href="#"><i class="icon-glass"></i></a>
-                                    <a class="btn change-font" href="#"><i class="icon-font"></i></a>
-                                </div>
-                                <a class="delete btn"><i class="icon-trash"></i></a>
-                            </div>-->
                         </div>
 
                     </div>
