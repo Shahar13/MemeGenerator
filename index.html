@@ -176,16 +176,24 @@
 
                 </div>
                 <div class="keywords_rating fLeft">
-                    KEYWORDS RATINGS
+                    <i>-- KEYWORDS RATINGS --</i>
                     <br />
-                    <div>
-                        summer animals cute movies flowers funny horror faces kids emotions
+                    <div id="ratingKeywords">
+                        <span class="rate_5">summer</span>
+                        <span class="rate_2">animals</span>
+                        <span class="rate_4">cute</span>
+                        <span class="rate_3">movies</span>
+                        <span class="rate_1">flowers</span>
+                        <span class="rate_1">funny</span>
+                        <span class="rate_4">horror</span>
+                        <span class="rate_2">faces</span>
+                        <span class="rate_5">kids</span>
+                        <span class="rate_3">emotions</span>
                     </div>
                 </div>
 
 
             </div>
-
             <!--END OF content main-->
         </div>
     </main>
@@ -264,23 +272,25 @@
             <div class="touch_left">
                 <form id="contactForm">
                     <div class="form-group">
-                        <input placeholder="Name" class="form-control">
+                        <input id="userName" tabindex="1" placeholder="Name > required field" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email" class="form-control">
+                        <input id="userEmail" tabindex="2" type="email" placeholder="Email > required field" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <input placeholder="Subject" class="form-control">
+                        <input id="userSubject" tabindex="3" placeholder="Subject > required field" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <textarea id="userMessage" cols="60" rows="10" placeholder="Write your message here..." class="form-control">
-                        </textarea>
+                        <textarea id="userMessage" tabindex="4" cols="60" rows="10" placeholder="Write your message here...  > required field" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn_send" onclick="return false;" title="Send the form">SEND</button>
+                        <button tabindex="5" class="btn_send" onclick="return false;" title="Send the form">SEND</button>
                     </div>
-                    <br />
                 </form>
+
+                <!-- user feedback -->
+                <span id="userFeedback" class="user_feedback"></span>
+                <br />
             </div>
             <div class="touch_right">
                 <strong form_text_color>Quisque Hendrerit:</strong> purus dapibus, ornare nibh vitae, viverra nibh. Fusce
@@ -313,9 +323,9 @@
     <script type="text/javascript" src="lib/jquery/autocomplete/js/jquery.autocomplete.min.js"></script>
     <script type="text/javascript" src="lib/jquery/autocomplete/js/currency-autocomplete.js"></script>
 
+    <script src="js/main.js"></script>
     <script src="js/jqHelpers.js"></script>
     <script src="js/contactForm.js"></script>
-    <script src="js/main.js"></script>
 
 
 </body>
