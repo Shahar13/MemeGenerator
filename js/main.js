@@ -1,20 +1,19 @@
 'use strict';
 
-// (function() {
-
-console.log('Hello Meme');
-
 var GMEMES_SIZE = 8;
 var GLINES_SIZE = 2;
 var LINE1 = 0;
 var LINE2 = 1;
 
-var gMemes=[];
-// var gRating;
+var gMemes = [];
 var gLines=[];
-var gImage = {context:null, url:'',width:400, height:300};
+var gImage = {context:null, url:'',width:500, height:365};
+var gRatings = [];
 
-$(document).ready(function(){
+//$(document).ready(function(){
+function init(){
+    console.log('meme generator init');
+    
     var meme = {id:0, url:'', keyWords:[]};
    for (var i = 0; i < GMEMES_SIZE; i++) {
         meme = {id:i+1, url:'../assets/img'+(i+1)+'.jpg', keyWords:[] };
@@ -22,16 +21,26 @@ $(document).ready(function(){
     };
 
     addKeywords();
-
+    buildRatingArray()
+    updateRating();
+    
     var line = {posX:40, posY:40, color:'#000000', font:'Helvetica', fontSize:16, 
-    text:'', align:'start'};
+    text:'', align:'left'};
     gLines.push(line);
-    line = {posX:40, posY:260, color:'#000000', font:'Helvetica', fontSize:16, 
-    text:'', align:'start' };     
+    line = {posX:40, posY:325, color:'#000000', font:'Helvetica', fontSize:16, 
+    text:'', align:'left' };     
     gLines.push(line);
 
+    console.log('after init',gRatings);
 //    doEditor(gMemes[1].url);
-});
+};
+
+
+function updateRating(){
+    setRatingLevel();
+    renderRating();
+}
+
 
 function addKeywords(){
     gMemes[0].keyWords = ['baby','engry','rough'];
@@ -43,6 +52,62 @@ function addKeywords(){
     gMemes[6].keyWords = ['trump','speeking','electionד'];
     gMemes[7].keyWords = ['smoking','injoy','rough','adolt'];
 }
+
+
+function buildRatingArray(){  
+    gMemes.forEach(function(meme) {
+        meme.keyWords.forEach(function(keyword) {
+            if (gRatings[keyword] === undefined){
+                gRatings[keyword]= {value:keyword, rate:0, rateLevel:0};
+            }
+        });
+    });
+}
+
+
+function addRating(keyword){
+    if (gRatings[keyword]!== undefined) {
+        gRatings[keyword].rate++;
+    }
+}
+
+
+function setRatingLevel(){
+    var minRate = 0;
+    var maxRate = 0;
+    var RATING_LEVELS = 5;
+
+ //   var keyRate = gKeyWords[keyword]; 
+    gRatings.forEach(function(keyword) {
+        if (keyword.rate > maxRate) maxRate = rate;
+        if (keyword.rate < minRate) minRate = rate;
+    });
+
+    gRatings.forEach(function(keyword) {
+        if ((maxRate-minRate) !== 0){
+            keyword.rateLevel = 
+                Math.round (((keyword.rate-minRate) / (maxRate-minRate)) * ((maxRate-minRate)/RATING_LEVELS));
+        }
+        else keyword.rateLevel = 0;
+    }); 
+}
+
+
+function renderRating(){
+
+ //   <span class="rate_5">summer</span>
+    var strHtml = '';
+
+   for (var key in gRatings) {
+       strHtml += '<span class="rate_' + 
+            (gRatings[key].rateLevel+1) + 
+            '">' + 
+            gRatings[key].value + 
+            '</span>\n';
+   }        
+    $('#ratingKeywords').html(strHtml);
+}
+
 
 function getUserImg(idx){
     doEditor(gMemes[idx-1].url);
@@ -69,17 +134,16 @@ function drawOnCanvas() {
     img.onload = function () {
         gImage.context.drawImage(img, 0, 0, gImage.width, gImage.height);
         gLines.forEach(function(line) { 
-            // debugger 
-                console.log('line ', line);          
-                gImage.context.font = line.fontSize+'px '+ line.font;
-                gImage.context.textAlign = line.align;  
-                gImage.context.fillStyle = line.color;
-                gImage.context.fillText(line.text, line.posX, line.posY);
-            });
-        }
+ //           console.log('line ', line);          
+            gImage.context.font = line.fontSize+'px '+ line.font;
+            gImage.context.textAlign = line.align;  
+            gImage.context.fillStyle = line.color;
+            gImage.context.fillText(line.text, line.posX, line.posY);
+        });
+    }
 }
 
-function getUserLine(idx){
+function setTextLine(idx){
     var selector = "#lineText"+idx;
     gLines[idx-1].text = document.querySelector(selector).value;
  //   console.log('line=',line.value);
@@ -101,7 +165,6 @@ function setFontFamily(idx){
 function incFontSize(idx){
     gLines[idx-1].fontSize += 2;
     drawOnCanvas();
-
 }
 
 function decFontSize(idx){
@@ -110,26 +173,49 @@ function decFontSize(idx){
 }
 
 function alignLeft(idx){
-    console.log('in alignLeft');   
-
-    gLines[idx-1].textAlign = "start";
+//    console.log('in alignLeft');   
+    gLines[idx-1].textAlign = 'left';
     gLines[idx-1].posX = 40;
     drawOnCanvas();
 }
 
-function alignRight(){
-    console.log('in alignRight');   
 
-    gLines[idx-1].textAlign = "end";
+function alignRight(idx){
+    console.log('in alignRight');   
+    gLines[idx-1].textAlign = 'right';
     gLines[idx-1].posX = gImage.width-40;
     drawOnCanvas();
 }
 
 function alignCenter(idx){
     console.log('in alignCenter');   
-    gLines[idx-1].textAlign = "center";
-    gLines[idx-1].posX = 200;
+    gLines[idx-1].textAlign = 'center';
+    gLines[idx-1].posX = gImage.width/2;
     drawOnCanvas();    
+}
+
+
+function saveImage(elLink) {
+    elLink.href = canvas.toDataURL();
+    elLink.download = 'perfectMeme.jpg';
+}
+
+
+function autoComplete(){
+    console.log('autocomplete');
+    var userRequest = querySelector('#autocomplete').value;
+    addRating(userRequest);
+    updateRating();
+  
+}
+
+
+function editUserImage(){
+    console.log('editUserImage');
+    console.log($(this).parent().val);
+    var userRequest = querySelector('#autocomplete').value;
+    addRating(userRequest);
+    updateRating();    
 }
 
 // function called when user click-in a keyowrd search string 
