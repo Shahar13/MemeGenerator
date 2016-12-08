@@ -56,7 +56,7 @@ function drawOnCanvas() {
     img.onload = function () {
         gImage.context.drawImage(img, 0, 0, gImage.width, gImage.height);
         gLines.forEach(function(line) { 
-            debugger 
+            // debugger 
                 console.log('line ', line);          
                 gImage.context.font = line.fontSize+'px '+ line.font;
                 gImage.context.textAlign = line.align;  
@@ -66,61 +66,56 @@ function drawOnCanvas() {
         }
 }
 
-function getUserLine(){
- //   var line = document.querySelector("#lineText");
-    gLines[0].text = document.querySelector("#lineText").value;
+function getUserLine(idx){
+    var selector = "#lineText"+idx;
+    gLines[idx-1].text = document.querySelector(selector).value;
  //   console.log('line=',line.value);
     drawOnCanvas();
 }
 
-function setColor(lineIdx,color){
-    var color = document.querySelector("#colorPicker").value.toString();
-    console.log('color', color);
-    gLines[0].color = color;
+function setColor(idx){
+    var selector = "#colorPicker"+idx;
+    gLines[idx-1].color = document.querySelector(selector).value.toString();
     drawOnCanvas();
 }
 
-function setFontFamily(){  
- //   console.log('in setFontFamily');   
-    var font = document.querySelector("#fontFamily").value;
- //   console.log('font',font);   
-    gLines[0].font = font;
+function setFontFamily(idx){
+    var selector = "#fontFamily"+idx;
+    gLines[idx-1].font = document.querySelector(selector).value;
     drawOnCanvas();
 }
 
-function incFontSize(){
-   var inc = document.querySelector("#incFontSize").value;
-    gLines[0].fontSize += 2;
+function incFontSize(idx){
+    gLines[idx-1].fontSize += 2;
     drawOnCanvas();
 
 }
 
-function decFontSize(){
-   var inc = document.querySelector("#decFontSize").value;
-    gLines[0].fontSize -= 2;
+function decFontSize(idx){
+    gLines[idx-1].fontSize -= 2;
     drawOnCanvas();
 }
 
-function alignLeft(){
+function alignLeft(idx){
     console.log('in alignLeft');   
 
-    gLines[0].textAlign = "start";
-    gLines[0].posX = 40;
+    gLines[idx-1].textAlign = "start";
+    gLines[idx-1].posX = 40;
     drawOnCanvas();
 }
 
 function alignRight(){
     console.log('in alignRight');   
 
-    gLines[0].textAlign = "end";
-    gLines[0].posX = gImage.width-40;
+    gLines[idx-1].textAlign = "end";
+    gLines[idx-1].posX = gImage.width-40;
     drawOnCanvas();
 }
 
-function alignCenter(){
+function alignCenter(idx){
     console.log('in alignCenter');   
-    gLines[0].textAlign = "center";
-    gLines[0].posX = 200;
+    gLines[idx-1].textAlign = "center";
+    gLines[idx-1].posX = 200;
     drawOnCanvas();    
 }
 
