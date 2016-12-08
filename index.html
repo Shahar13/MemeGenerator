@@ -77,20 +77,38 @@
                                 Go back
                             </button>
                             <br />
-                            <input name="" id="lineText" onkeyup="getUserLine()" />
+                            <input name="" id="lineText1" onkeyup="getUserLine(1)" />
                             <br />
-                            <button id="incFontSize" onclick="incFontSize()">font +</button>
-                            <button id="decFontSize" onclick="decFontSize()">font -</button>
-                            <button id="alignLeft" onclick="alignLeft()">Left</button>
-                            <button id="alignRight" onclick="alignRight()">Right</button>
-                            <button id="alignCenter" onclick="alignCenter()">Center</button>
-                            <input id="colorPicker" oninput="setColor()" type="color" />
-                            <select id="fontFamily" onchange="setFontFamily()">
+                            <button id="incFontSize1" onclick="incFontSize(1)">+</button>
+                            <button id="decFontSize1" onclick="decFontSize(1)">-</button>
+                            <button id="alignLeft1" onclick="alignLeft(1)">Left</button>
+                            <button id="alignRight1" onclick="alignRight(1)">Right</button>
+                            <button id="alignCenter1" onclick="alignCenter(1)">Center</button>
+                            <input id="colorPicker1" oninput="setColor(1)" type="color" />
+                            <select id="fontFamily1" onchange="setFontFamily(1)">
                                 <option value="Helvetica">Helvetica</option>
                                 <option value="Comics Sans MS">Comics Sans MS</option>
                                 <option value="Courier">Courier</option>
                                 <option value="Times New Roman">Times New Roman</option>
                             </select>
+                            <br />
+                            <input name="" id="lineText2" onkeyup="getUserLine(2)" />
+                            <br />
+                            <button id="incFontSize2" onclick="incFontSize(2)">+</button>
+                            <button id="decFontSize2" onclick="decFontSize(2)">-</button>
+                            <button id="alignLeft2" onclick="alignLeft(2)">Left</button>
+                            <button id="alignRight2" onclick="alignRight(2)">Right</button>
+                            <button id="alignCenter2" onclick="alignCenter(2)">Center</button>
+                            <input id="colorPicker2" oninput="setColor(2)" type="color" />
+                            <select id="fontFamily2" onchange="setFontFamily(2)">
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Comics Sans MS">Comics Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                            </select>
+                            <button id="save">
+                                Save
+                            </button>
                             <div class="btn-toolbar">
                                 <div class="btn-group">
                                     <a class="btn align-right" href="#"><i class="icon-align-right"></i></a>
@@ -326,7 +344,6 @@
     <script src="js/main.js"></script>
     <script src="js/jqHelpers.js"></script>
     <script src="js/contactForm.js"></script>
-
 
 </body>
 
