@@ -8,6 +8,7 @@ var LINE2 = 1;
 var gMemes = [];
 var gLines=[];
 var gImage = {context:null, url:'',width:500, height:365};
+var gCanvas;
 var gRatings = [];
 
 //$(document).ready(function(){
@@ -117,12 +118,14 @@ function getUserImg(idx){
 // need to enter editor mode with that image.
 function doEditor(imgUrl){
         // memeCanvas
-    var canvas = document.querySelector('#memeCanvas');
-    var ctx = canvas.getContext('2d');
+//    var canvas = document.querySelector('#memeCanvas');
+    gCanvas = document.querySelector('#memeCanvas');
+
+    var ctx = gCanvas.getContext('2d');
     gImage.context = ctx;
     gImage.url = imgUrl;
-    gImage.width = canvas.width;
-    gImage.height = canvas.height;
+    gImage.width = gCanvas.width;
+    gImage.height = gCanvas.height;
     drawOnCanvas();
 }
 
@@ -196,27 +199,35 @@ function alignCenter(idx){
 
 
 function saveImage(elLink) {
-    elLink.href = canvas.toDataURL();
+    console.log('saveImage',elLink); 
+    elLink.href = gCanvas.toDataURL();
     elLink.download = 'perfectMeme.jpg';
-}
-
-
-function autoComplete(){
-    console.log('autocomplete');
-    var userRequest = querySelector('#autocomplete').value;
-    addRating(userRequest);
-    updateRating();
-  
 }
 
 
 function editUserImage(){
     console.log('editUserImage');
     console.log($(this).parent().val);
-    var userRequest = querySelector('#autocomplete').value;
-    addRating(userRequest);
-    updateRating();    
+    var userRequest = querySelector('#editUserImage').value;
+    console.log(userRequest);
+    
+    // addRating(userRequest);
+    // updateRating();    
 }
+
+
+function autoComplete(){
+    console.log('autocomplete');
+ //   console.log($(this).parent().val;
+
+     var userRequest = querySelector('#autocomplete').value;
+     console.log('userRequest');
+    
+    // addRating(userRequest);
+    // updateRating();  
+}
+
+
 
 // function called when user click-in a keyowrd search string 
 // need to go over the memes and show only the ones who has that keyword.
