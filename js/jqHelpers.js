@@ -40,4 +40,8 @@ $(document).ready(function() {
         $('body').animate({ scrollTop: $('#getintouch').offset().top }, 1000);
         return false;
     });
+
+    // $('#main_nav__mobile_checkbox').on('click', function(){
+    //     $('.header_div').toggleClass('fixed');
+    // });
 });

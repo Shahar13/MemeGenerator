@@ -11,7 +11,6 @@ var gImage = {context:null, url:'',width:500, height:365};
 var gCanvas;
 var gRatings = [];
 
-//$(document).ready(function(){
 function init(){
     console.log('meme generator init');
     
@@ -96,7 +95,6 @@ function setRatingLevel(){
 
 function renderRating(){
 
- //   <span class="rate_5">summer</span>
     var strHtml = '';
 
    for (var key in gRatings) {
@@ -118,7 +116,6 @@ function getUserImg(idx){
 // need to enter editor mode with that image.
 function doEditor(imgUrl){
         // memeCanvas
-//    var canvas = document.querySelector('#memeCanvas');
     gCanvas = document.querySelector('#memeCanvas');
 
     var ctx = gCanvas.getContext('2d');
@@ -137,7 +134,6 @@ function drawOnCanvas() {
     img.onload = function () {
         gImage.context.drawImage(img, 0, 0, gImage.width, gImage.height);
         gLines.forEach(function(line) { 
- //           console.log('line ', line);          
             gImage.context.font = line.fontSize+'px '+ line.font;
             gImage.context.textAlign = line.align;  
             gImage.context.fillStyle = line.color;
@@ -176,7 +172,6 @@ function decFontSize(idx){
 }
 
 function alignLeft(idx){
-//    console.log('in alignLeft');   
     gLines[idx-1].textAlign = 'left';
     gLines[idx-1].posX = 40;
     drawOnCanvas();
@@ -206,9 +201,12 @@ function saveImage(elLink) {
 
 
 function editUserImage(){
-    console.log('editUserImage');
-    console.log($(this).parent().val);
-    var userRequest = querySelector('#editUserImage').value;
+    /////////////////////////////////////////////////
+    // Reuven - 
+    // either: document.getElementById('elID').VALUE 
+    // OR: $('#elID').VAL()  
+    //////////////////////////////////////////////////
+    var userRequest = $('#editUserImage').val();
     console.log(userRequest);
     
     // addRating(userRequest);
@@ -217,11 +215,14 @@ function editUserImage(){
 
 
 function autoComplete(){
-    console.log('autocomplete');
- //   console.log($(this).parent().val;
-
-     var userRequest = querySelector('#autocomplete').value;
-     console.log('userRequest');
+    /////////////////////////////////////////////////////////
+    // Reuven - 
+    // as mentioned above - see the differance below.
+    // AND MORE - you are calling the WRONG ID 'autocomplete'
+    // INSTEAD OF - editUserImage
+    /////////////////////////////////////////////////////////
+    var userRequest =  document.getElementById('editUserImage').value;
+    console.log('userRequest');
     
     // addRating(userRequest);
     // updateRating();  

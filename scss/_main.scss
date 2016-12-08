@@ -54,6 +54,21 @@
 	}  
 }
 
+.tools .btn_search_keyword, .tools .btn_add_image{
+    background: var(--turquoise1);
+    height: 1.8em;
+    line-height: 0.7em;
+    border: solid 1px grey;
+	@include for-mobile-only {
+    	float: none;
+        width: 65%;
+        margin: 10px auto;
+	}
+}
+.tools .btn_search_keyword:hover, .tools .btn_add_image:hover{
+    box-shadow: inset -1px -1px 5px #000000;
+}
+
 .tools BUTTON{
     background: var(--turquoise1);
     height: 1.8em;

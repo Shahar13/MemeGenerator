@@ -50,6 +50,9 @@ MAIN {
 /* middle LI */
 .main_nav__items LI:nth-child(3) {
     z-index: 2;
+	@include for-mobile-only {
+        display: none;
+	}  
 }
 
 .main_nav__item {
@@ -72,6 +75,12 @@ MAIN {
 }
 
 @media (max-width: $mobile_breakpoint) {
+    
+    .header_div{
+        position: fixed;
+        z-index: 999;
+    }
+
     .main_nav {
         display: block;
     }
