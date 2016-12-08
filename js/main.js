@@ -21,6 +21,8 @@ $(document).ready(function(){
         gMemes.push(meme);
     };
 
+    addKeywords();
+
     var line = {posX:40, posY:40, color:'#000000', font:'Helvetica', fontSize:16, 
     text:'', align:'start'};
     gLines.push(line);
@@ -30,6 +32,17 @@ $(document).ready(function(){
 
 //    doEditor(gMemes[1].url);
 });
+
+function addKeywords(){
+    gMemes[0].keyWords = ['baby','engry','rough'];
+    gMemes[1].keyWords = ['baby','fire','smile','Firefighters','evil'];
+    gMemes[2].keyWords = ['dog','animal'];
+    gMemes[3].keyWords = ['adolt','scary','strange'];
+    gMemes[4].keyWords = ['painting','hands','dispare'];
+    gMemes[5].keyWords = ['adolt','Glasses','laptop'];
+    gMemes[6].keyWords = ['trump','speeking','electionד'];
+    gMemes[7].keyWords = ['smoking','injoy','rough','adolt'];
+}
 
 function getUserImg(idx){
     doEditor(gMemes[idx-1].url);
@@ -119,12 +132,6 @@ function alignCenter(idx){
     drawOnCanvas();    
 }
 
-// function called when user is in editor div and
-// wish to return to main div to choose another meme to edit.
-
-// function called when user click on send in "get in touch" form.
-// save the form data (feilds and values) in the local storage.
-
 // function called when user click-in a keyowrd search string 
 // need to go over the memes and show only the ones who has that keyword.
 
@@ -132,9 +139,7 @@ function alignCenter(idx){
 // add a new meme to gMeme (no id,url as user clicked)
 // need to enter editor mode with that image.
 
-// function to calculate the image rating.
 // build a rating array. array key is the keyword.
 // array value is the rating (number of time it was searched).
 // then
 // })();
-
