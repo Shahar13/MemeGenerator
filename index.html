@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Meme Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="shortcut icon" type="image/ico" href="favicon.png" />
+    
     <!-- bootstrap and jQ -->
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/fonts/Awesome/css/font-awesome.min.css" />
@@ -15,21 +16,27 @@
 <body onload="init()">
 
     <!-- HEADER -->
-    <header class="container lightblack_bg">
-        <div class="inner_container">
+    <header class="container lightblack_bg header_div">
+        <div class="inner_container_header">
             <nav class="main_nav flex">
                 <input type="checkbox" id="main_nav__mobile_checkbox">
                 <label for="main_nav__mobile_checkbox" class="main_nav__mobile_icon">&#9776;</label>
                 <div class="main_nav__inner flex space_between">
                     <ul class="clean_list main_nav__items flex justify_center">
                         <li><a href="#" id="scrollPortfolio" class="main_nav__item align-center">Portfolio</a></li>
-                        <li><a href="#" id="scrollAbout" class="main_nav__item align-center">About</a></li>
                         <li><a href="#" id="scrollGetintouch" class="main_nav__item align-center">Get in touch</a></li>
+                        <li><a href="#" class="main_nav__item align-center logo_item"><img src="../assets/logo.png" /></a></li>
+                        <li><a href="#" id="scrollAbout" class="main_nav__item align-center">About</a></li>
+                        <li><a href="#" class="main_nav__item align-center">Non active</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
+    <!-- black tringle under the top nav  -->
+    <div class="main_nav_bottom_wrapper">
+        <span class="main_nav_bottom"></span>
+    </div>
     <!-- END OF Header-->
 
     <!-- MAIN -->
@@ -125,9 +132,9 @@
                             </select>
                             <br />
                             
-                            <button onclick="return false; saveImage(this)" class="btn btn-default btn_save" id="save">
+                            <a onclick="saveImage(this)" class="btn btn-default btn_save" id="save">
                                 Save
-                            </button>
+                            </a>
                         </div>
 
                     </div>
@@ -211,8 +218,6 @@
                         <span class="rate_3">emotions</span>
                     </div>
                 </div>
-
-
             </div>
             <!--END OF content main-->
         </div>
