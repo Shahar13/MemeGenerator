@@ -22,6 +22,13 @@ $(document).ready(function() {
         // console.log($(this).attr('id'));
 	});
 
+
+	$('.btn_add_image').on('click', function(){
+        $('#canvasEditor').slideToggle();
+        // console.log($(this).attr('id'));
+	});
+
+
     //close the canvas editor
 	$('#closeCanvasEditor').on('click', function(){
         $('#canvasEditor').slideUp('slow');        
