@@ -7,12 +7,11 @@ var gMemes = [];
 
 
 function init(){
-//    console.log('meme generator init');   
     initMemesArray();
     buildRatingArray()
     updateRating();
-//    localStorage.setItem('gKeywords', JSON.stringify(gKeywords));
-//    console.log('after init',gKeywords);
+    // console.log(gMemes);    
+    // console.log('gKeywords',gKeywords); 
 };
 
 
@@ -23,6 +22,12 @@ function initMemesArray(){
         gMemes.push(meme);
     };
     addKeywords();
+    // var str = JSON.stringify(gMemes); 
+    // console.log('str',str);
+    // $.getJSON("globalmemes.json", function(json) {
+    //     gMemes = json;
+    // });
+    // console.log(gMemes);    
 }
 
 
@@ -53,7 +58,6 @@ function buildRatingArray(){
             }
         });
     });
-//    console.log('buildRatingArray',gKeywords);
 }
 
 
@@ -71,25 +75,18 @@ function setRatingLevel(){
     var maxRate = 0;
     var RATING_LEVELS = 5;
 
- //   var keyRate = gKeyWords[keyword]; 
- //   gKeywords.forEach(function(keyword) {
     for (var key in gKeywords) {    
         if (gKeywords[key].rate > maxRate) maxRate = gKeywords[key].rate ;
         if (gKeywords[key].rate < minRate) minRate = gKeywords[key].rate;
     };
 
-//    console.log('minRate=',minRate, '   maxRate=',maxRate);
-    
- //   gKeywords.forEach(function(keyword) {
     var factor =  RATING_LEVELS / (maxRate-minRate);
  
     if ((maxRate-minRate) !== 0){
         for (var key in gKeywords) {
             gKeywords[key].rateLevel = Math.round ((gKeywords[key].rate-minRate)*factor);
-    //               Math.round (((key.rate-minRate) / (maxRate-minRate)) * ((maxRate-minRate)/RATING_LEVELS));               
         }
     };  
-//    console.log('setRatingLevel',gKeywords);
 }
 
 
@@ -119,7 +116,6 @@ function keywordClickedAction(key){
         filterMemes(key);
     }
 }
-
 
 
 function filterMemes(key){
