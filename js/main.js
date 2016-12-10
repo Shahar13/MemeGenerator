@@ -1,20 +1,18 @@
 'use strict';
 
 var GMEMES_SIZE = 8;
-var LINE1 = 0;
-var LINE2 = 1;
 
 var gKeywords;
 var gMemes = [];
 
 
 function init(){
-    console.log('meme generator init');   
+//    console.log('meme generator init');   
     initMemesArray();
     buildRatingArray()
     updateRating();
-    localStorage.setItem('gKeywords', JSON.stringify(gKeywords));
-    console.log('after init',gKeywords);
+//    localStorage.setItem('gKeywords', JSON.stringify(gKeywords));
+//    console.log('after init',gKeywords);
 };
 
 
@@ -41,7 +39,7 @@ function addKeywords(){
     gMemes[3].keyWords = ['adolt','scary','strange'];
     gMemes[4].keyWords = ['painting','hands','dispare'];
     gMemes[5].keyWords = ['adolt','Glasses','laptop'];
-    gMemes[6].keyWords = ['trump','speeking','electionד'];
+    gMemes[6].keyWords = ['trump','speeking','election'];
     gMemes[7].keyWords = ['smoking','injoy','rough','adolt'];
 }
 
@@ -55,15 +53,16 @@ function buildRatingArray(){
             }
         });
     });
-    console.log('buildRatingArray',gKeywords);
+//    console.log('buildRatingArray',gKeywords);
 }
 
 
 function addRating(keyword){
     if (gKeywords[keyword] !== undefined) {
         gKeywords[keyword].rate++;
+        return true;
     }
-    console.log('addRating',gKeywords);
+    return false;
 }
 
 
@@ -79,18 +78,18 @@ function setRatingLevel(){
         if (gKeywords[key].rate < minRate) minRate = gKeywords[key].rate;
     };
 
-    console.log('minRate=',minRate, '   maxRate=',maxRate);
+//    console.log('minRate=',minRate, '   maxRate=',maxRate);
     
  //   gKeywords.forEach(function(keyword) {
-    var factor =  (maxRate-minRate) / RATING_LEVELS  / (maxRate-minRate);
-
+    var factor =  RATING_LEVELS / (maxRate-minRate);
+ 
     if ((maxRate-minRate) !== 0){
         for (var key in gKeywords) {
             gKeywords[key].rateLevel = Math.round ((gKeywords[key].rate-minRate)*factor);
     //               Math.round (((key.rate-minRate) / (maxRate-minRate)) * ((maxRate-minRate)/RATING_LEVELS));               
         }
     };  
-    console.log('setRatingLevel',gKeywords);
+//    console.log('setRatingLevel',gKeywords);
 }
 
 
@@ -104,28 +103,69 @@ function renderKeywords(){
             gKeywords[key].value + '</span>\n';
    }        
     $('#ratingKeywords').html(strHtml);
-    console.log('renderKeywords',gKeywords);
+//    console.log('renderKeywords',gKeywords);
 }
 
 
 function keywordClicked(key){
- //   verifyKeywords();
-    console.log('keywordClicked:',key);
-    addRating(key);
-    updateRating();
+    clearMemes();
+    keywordClickedAction(key);
+}
+
+
+function keywordClickedAction(key){
+    if (addRating(key)) {
+        updateRating();
+        filterMemes(key);
+    }
+}
+
+
+
+function filterMemes(key){
+    gMemes.forEach(function(meme,idx) {
+        var keyFound = false;
+
+        meme.keyWords.forEach(function(keyword) {
+            if (gKeywords[keyword].value === gKeywords[key].value){
+                keyFound = true;
+            }
+        });
+        var elMeme = document.querySelector('.img'+(idx+1));
+        if (keyFound){
+            elMeme.classList.remove("hide");
+            elMeme.classList.add("show");            
+        }
+    });    
 }
 
 
 function searchKeyword(){
 //    verifyKeywords();
-    var keyword =  $('#searchkeyword').val();
-    console.log('keyword:',keyword);
+    var searchStr =  $('#searchkeyword').val();
+    var strArr = searchStr.split(" ");
+    clearMemes();
+    strArr.forEach(function(str) {
+        var keyword = str.trim();
+        keywordClickedAction(keyword);
+    });
+    
+ //   console.log('keyword:',keyword);
 }
 
 
-function verifyKeywords(){
-    if (gKeywords.length <= 0){ 
-        var keywordStr = localStorage.getItem('gKeywords');
-        gKeywords = JSON.parse(keywordStr);
-    }
+function clearMemes(){
+    gMemes.forEach(function(meme,idx) {
+        var elMeme = document.querySelector('.img'+(idx+1));
+        elMeme.classList.remove("show");
+        elMeme.classList.add("hide");            
+    });    
 }
+
+
+// function verifyKeywords(){
+//     if (gKeywords.length <= 0){ 
+//         var keywordStr = localStorage.getItem('gKeywords');
+//         gKeywords = JSON.parse(keywordStr);
+//     }
+// }

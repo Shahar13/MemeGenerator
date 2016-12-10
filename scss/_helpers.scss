@@ -7,11 +7,20 @@
 .fRight{
   float: right;
 }
+
 .img_responsive {
   display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
+}
+
+.hide {
+  display:none;
+}
+
+.show{
+  display:block;
 }
 
 /* Breakpoint mixins */

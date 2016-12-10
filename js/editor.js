@@ -44,6 +44,7 @@ function getUserImg(idx){
 
 function drawOnCanvas(context,url) {
     var img = new Image();
+ //   img.setAttribute('crossOrigin', 'anonymous');
     img.src = url;
 //    console.log('img.src', img.src);
 
@@ -96,14 +97,14 @@ function alignLeft(idx){
 
 
 function alignRight(idx){
-    console.log('in alignRight');   
+//    console.log('in alignRight');   
     gLines[idx-1].align = 'right';
     gLines[idx-1].posX = gImage.width*0.95;
     drawOnCanvas(gImage.context, gImage.url );
 }
 
 function alignCenter(idx){
-    console.log('in alignCenter');   
+//    console.log('in alignCenter');   
     gLines[idx-1].align = 'center';
     gLines[idx-1].posX = gImage.width/2;
     drawOnCanvas(gImage.context, gImage.url );    
@@ -111,9 +112,17 @@ function alignCenter(idx){
 
 
 function saveImage(elLink) {
-    console.log('saveImage',elLink); 
-    elLink.href = gDomCanvas.toDataURL();
-    elLink.download = 'perfectMeme.jpg';
+ //   console.log('saveImage',elLink); 
+ //    console.log('gImage',gImage);   
+    try{
+        elLink.href = gDomCanvas.toDataURL();
+    }
+    catch(err) {
+ //       console.log(err);
+		alert("Can not save Internet reference file. Try downloading the image and re-edit the local saved file");
+        return;
+	}
+    elLink.download = gImage.url;
 }
 
 
