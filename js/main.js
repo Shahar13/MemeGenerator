@@ -139,6 +139,15 @@ function filterMemes(key){
 function searchKeyword(){
 //    verifyKeywords();
     var searchStr =  $('#searchkeyword').val();
+
+    if (searchStr.length <= 1){
+        showAllMemes();
+        return;
+    }
+
+    console.log('searchStr:"',searchStr,'"');
+    console.log('searchStr length:',searchStr.length);
+    
     var strArr = searchStr.split(" ");
     clearMemes();
     strArr.forEach(function(str) {
@@ -155,6 +164,15 @@ function clearMemes(){
         var elMeme = document.querySelector('.img'+(idx+1));
         elMeme.classList.remove("show");
         elMeme.classList.add("hide");            
+    });    
+}
+
+
+function showAllMemes(){
+    gMemes.forEach(function(meme,idx) {
+        var elMeme = document.querySelector('.img'+(idx+1));
+        elMeme.classList.remove("hide");
+        elMeme.classList.add("show");            
     });    
 }
 
