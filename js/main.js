@@ -18,7 +18,7 @@ function init(){
 function initMemesArray(){
    var meme = {id:0, url:'', keyWords:[]};
    for (var i = 0; i < GMEMES_SIZE; i++) {
-        meme = {id:i+1, url:'../assets/img'+(i+1)+'.jpg', keyWords:[] };
+        meme = {id:i+1, url:'assets/img'+(i+1)+'.jpg', keyWords:[] };
         gMemes.push(meme);
     };
     addKeywords();
