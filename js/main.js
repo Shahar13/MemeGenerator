@@ -106,7 +106,7 @@ function renderKeywords(){
 
 function keywordClicked(key){
     clearMemes();
-    keywordClickedAction(key);
+    return keywordClickedAction(key);
 }
 
 
@@ -114,7 +114,9 @@ function keywordClickedAction(key){
     if (addRating(key)) {
         updateRating();
         filterMemes(key);
+        return true;
     }
+    return false;
 }
 
 
@@ -139,22 +141,19 @@ function filterMemes(key){
 function searchKeyword(){
 //    verifyKeywords();
     var searchStr =  $('#searchkeyword').val();
+    var noneEmptyGalery = false;
 
-    if (searchStr.length <= 1){
-        showAllMemes();
-        return;
-    }
-
-    console.log('searchStr:"',searchStr,'"');
-    console.log('searchStr length:',searchStr.length);
-    
     var strArr = searchStr.split(" ");
     clearMemes();
+    
     strArr.forEach(function(str) {
         var keyword = str.trim();
-        keywordClickedAction(keyword);
+        noneEmptyGalery |= keywordClickedAction(keyword);
     });
-    
+
+    if (!noneEmptyGalery){
+        showAllMemes();
+    }   
  //   console.log('keyword:',keyword);
 }
 

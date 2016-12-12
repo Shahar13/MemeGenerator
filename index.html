@@ -59,7 +59,7 @@
                             </span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="currency" id="searchkeyword" type="text" placeholder="key1 key 2 key3"/>
+                            <input class="form-control" name="currency" id="searchkeyword" type="text" onkeyup="searchKeyword();" placeholder="key1 key 2..."/>
                             <span onclick="searchKeyword();" class="btn btn-default btn_search_keyword">
                                 Search keyword
                             </span>
@@ -81,7 +81,7 @@
                             </canvas>
                         </div>
                         <div class="canvas_editor_meme fLeft">
-                            <button class="btn btn-default btn_gen btn_back" id="closeCanvasEditor">
+                            <button class="btn btn-default btn_gen btn_back" onclick="goBackClicked()" id="closeCanvasEditor">
                                 Go back
                             </button>
                             <br />

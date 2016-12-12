@@ -9,27 +9,31 @@ var gImage = {context:null, url:'', width:0, height:0};
 function doEditor(imgUrl){
  
     gDomCanvas = document.querySelector('#memeCanvas');
-
     var ctx = gDomCanvas.getContext('2d');
+ 
     ctx.clearRect(0, 0, gDomCanvas.width, gDomCanvas.height);
-
+    
     gImage.context = ctx;
     gImage.url = imgUrl;
     gImage.width = gDomCanvas.width;
     gImage.height = gDomCanvas.height;
+
     initTextLines();
     drawOnCanvas(ctx, imgUrl);
 }
 
 
 function initTextLines(){
-    console.log('initTextLines');
-    
-    var line1 = {posX:gImage.width*0.05, posY:gImage.height*0.1, 
-        color:'#000000', font:'Helvetica', fontSize:20, text:'', align:'left'};
+//    console.log('initTextLines');  
+
+    var line1 = {   posX:gImage.width*0.05, posY:gImage.height*0.1, 
+                    color:'#7f7f7f', font:'Helvetica', fontSize:30,
+                    text:'', align:'left'};
     gLines.push(line1);
-    var line2 = {posX:gImage.width*0.05, posY:gImage.height-20, 
-        color:'#000000', font:'Helvetica', fontSize:20, text:'', align:'left'};
+
+    var line2 = {   posX:gImage.width*0.05, posY:gImage.height-20, 
+                    color:'#7f7f7f', font:'Helvetica', fontSize:30,
+                    text:'', align:'left'};
     gLines.push(line2);
 
     document.querySelector("#lineText1").value = '';
@@ -119,7 +123,7 @@ function saveImage(elLink) {
     }
     catch(err) {
  //       console.log(err);
-		alert("Can not save Internet reference file. Try downloading the image and re-edit the local saved file");
+		alert("Can not save Internet reference file. Try downloading the image to your device, then re-edit the file");
         return;
 	}
     elLink.download = gImage.url;
@@ -130,4 +134,12 @@ function editExternalImage(){
     var externalUrl = $('#editUserImage').val();
     doEditor(externalUrl);
  //   console.log(externalUrl);
+}
+
+
+function goBackClicked(){
+    console.log('goBackClicked');
+    gLines.forEach(function(line){
+        line.text='';
+    })
 }

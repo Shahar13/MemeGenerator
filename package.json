@@ -5,9 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all --parallel browser styles",
-    "browser": "browser-sync start --server --files *.html, dist/*.css",
-
-    "styles": "node-sass scss/style.scss -o dist --watch",
+    "browser": "live-server",
+    "styles": "node-sass scss/style.scss dist/style.css -w",
     "build": "rm -rf build && copyfiles assets/* index.html assets/fonts/**/* dist/* build"
   },
   "devDependencies": {
@@ -17,6 +16,9 @@
     "npm-run-all": "^3.1.1"
   },
   "dependencies": {
+    "copyfiles": "^1.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
     "normalize.css": "^5.0.0"
   }
 }
